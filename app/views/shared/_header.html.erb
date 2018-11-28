@@ -1,0 +1,17 @@
+<div class="header-list clearfix">
+    <div class="logo">
+        <a href="/">Banderec | バンドメンバー検索サイト</a>
+    </div>
+    <div class="global-nav">
+        <ul>
+        <% if user_signed_in? %>
+        <span class="nav-item"><%= link_to '検索する', "/top/searchcondition" %></span>
+        <span class="nav-item"><%= link_to 'ログアウト', "/users/sign_out", method: :delete %></span>
+        <% else %>
+            <span class="nav-item"><%= link_to '新規登録', "/users/sign_up",method: :GET %></span>
+            <span class="nav-item"><%= link_to 'ログイン', "/users/sign_in",method: :GET %></span>
+        <% end %>
+        </ul>
+    </div>
+    <span class="fa fa-bars menu-icon"></span>
+</div>

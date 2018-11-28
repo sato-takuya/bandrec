@@ -1,0 +1,39 @@
+<div class="search-box">
+<h2>検索条件</h2>
+
+<%= form_tag("/top/search", method: "get") do %>
+<%= radio_button_tag :user_type,1,:checked => true %>加入希望 <%= radio_button_tag :user_type,2 %>メンバーを募集 <br>
+
+<%= check_box_tag 'candidate[id][]', 1,:checked => true %>ボーカル
+<%= check_box_tag 'candidate[id][]', 2,:checked => true %>ギター
+<%= check_box_tag 'candidate[id][]', 3,:checked => true %>ベース
+<%= check_box_tag 'candidate[id][]', 4,:checked => true %>キーボード
+<%= check_box_tag 'candidate[id][]', 5,:checked => true %>ドラム<br>
+
+<% array_area = ["東京都","埼玉県","神奈川県",'千葉県','北海道', '青森県', '岩手県', '宮城県', '秋田県',
+    '山形県', '福島県', '茨城県', '栃木県', '群馬県', '新潟県','富山県', '石川県', '福井県', '山梨県', '長野県','岐阜県', '静岡県', '愛知県', '三重県', '滋賀県',
+    '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県','鳥取県', '島根県', '岡山県', '広島県', '山口県','徳島県', '香川県', '愛媛県', '高知県', '福岡県',
+    '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県',
+    '鹿児島県', '沖縄県'] %>
+
+
+居住地(活動場所)：<%= select_tag :area,options_for_select(array_area) %><br>
+
+性別：<%= check_box_tag 'gender[id][]',1,:checked => true  %>男  <%= check_box_tag 'gender[id][]',2 ,:checked => true %>女 <br>
+
+職業：<%= check_box_tag 'job[id][]',1,:checked => true  %>会社員  <%= check_box_tag 'job[id][]',2 ,:checked => true %>フリーター <%= check_box_tag 'job[id][]',3,:checked => true  %>学生  <%= check_box_tag 'job[id][]',4 ,:checked => true %>その他<br>
+
+方向性：<%= check_box_tag 'future[id][]',1,:checked => true  %>プロ志向  <%= check_box_tag 'future[id][]',2,:checked => true  %>趣味 <br>
+
+<% array_age_first =  [*16..50] %>
+<% array_age_end = [*0..50].reverse %>
+
+年齢：<%= select_tag :age_start,options_for_select(array_age_first) %>才 から <%= select_tag :age_end,options_for_select(array_age_end) %>才<br>
+
+キーワード：<%= text_field_tag :info %><br>
+
+並び順：<%= radio_button_tag :order,1,:checked => true %>おすすめ <%= radio_button_tag :order,2 %>登録が新しい順 <br>
+
+<%= submit_tag "検索" %>
+<% end %>
+</div>

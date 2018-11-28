@@ -1,0 +1,85 @@
+<div class="show-box">
+  <div class="top-box clearfix">
+    <div class="image-box">
+      <% if @user.profile_picture.attached? %>
+        <%= image_tag  @user.profile_picture,class:"user_image" %>
+      <% else %>
+        <%= image_tag  "account.jpg",class:"user_image" %>
+      <% end %>
+    </div>
+    <div class="last-login">最終ログイン:24h以内</div>
+    <div class="data-box">
+      名前：<%= @user.name %><br>
+      <% if @user.user_type == 1 %>
+        加入希望
+      <% else %>
+        メンバー募集
+      <% end %>
+      <br>
+      担当パート：<% @user.instruments.each do |i| %>
+        <% case i.part %>
+          <% when 1 %>
+          Vo
+          <% when 2 %>
+          Gt
+          <% when 3 %>
+          Ba
+          <% when 4 %>
+          Key
+          <% when 5 %>
+          Dr
+          <% end %>
+        <% end %>
+      <br>
+      年齢：
+      <% date_format = "%Y%m%d" %>
+      <%= (Date.today.strftime(date_format).to_i - @user.birthday.strftime(date_format).to_i) / 10000 %> 才<br>
+      活動エリア：<%= @user.area %><br>
+      性別：
+      <%if  @user.gender== 1 %>
+        男性
+      <% else %>
+        女性
+      <% end %>
+      <br>
+      職業：
+      <% if @user.job == 1 %>
+          会社員
+      <% elsif 2 %>
+           フリーター
+      <% elsif 3 %>
+          学生
+      <% else %>
+          その他
+        <% end %>
+      <br>
+      方向性：
+      <% if @user.future == 1 %>
+      プロ志向
+      <% else %>
+      趣味
+      <% end %>
+      <br>
+    </div>
+    <div class="sound_source-box">
+      音源<br><%= text_url_to_link(h(@user.sound_source)).html_safe %>
+    </div>
+  </div>
+<div class="info-box">
+  <%= simple_format(@user.info) %>
+</div>
+<% if current_user %>
+  <% if @isRoom == true %>
+    <p><a href="/rooms/<%= @roomId %>" class="send-message">チャット画面へ</a>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, :value=> @user.id %>
+      <% end %>
+      <%= f.submit 'メッセージを送る', :class=>"send-message" %>
+    <% end %>
+    <% end %>
+    <% else %>
+    <%= link_to 'メッセージを送る', "/users/sign_up", :class=>"send-message"  %>
+    <% end %>
+</div>

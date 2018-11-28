@@ -1,0 +1,40 @@
+<h2 class="hidden">profile</h2>
+<% if current_user %>
+  <div class="profile">
+  <% if current_user.profile_picture.attached? %>
+    <%= image_tag  current_user.profile_picture,:class => "image" %>
+  <% end %>
+  <p class="name"><%= current_user.name %><span class="user-type">
+    <% if current_user.user_type == 1 %>
+      加入希望
+    <% else %>
+      メンバー募集
+    <% end %></span></p>
+    <%= link_to 'マイページ', mypage_path(current_user),:class => "edit" %>
+</div>
+<% else %>
+<!--サービスの説明-->
+<div class="right-top-about">
+  <a class="bandrectoha">Bandrecとは</a>
+</div>
+<% end %>
+<h2 class="hidden">message</h2>
+  <div class="message">
+  <%#<a class="text">メッセージ<span class="message-count">1</span></a>%>
+
+<% if current_user %>
+<% noreply_array = [] %>
+<% noreply(current_user,noreply_array) %>
+<%= link_to "未返信メッセージ #{noreply_array.count} 件", "/rooms",:class => "noreply-message" %>
+<% else %>
+<a class="text">メッセージ<span class="message-count">1</span></a>
+<% end %>
+</div>
+<h2 class="hidden">SidemenuFunction</h2>
+<div class="side-function">
+  <ul>
+    <%= link_to 'ユーザーを検索', "/top/searchcondition" %>
+    <li><a class="tofirst">はじめての方へ</a></li>
+    <li><a class=help>ヘルプ</a></li>
+  </ul>
+</div>

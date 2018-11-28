@@ -1,0 +1,21 @@
+<div class="room-index">
+<h2>メッセージ一覧</h2>
+<% @anotherEntries.reverse.each do |e| %>
+<div class= "room-content">
+  <%= link_to room_path(e.room.id) do %>
+  <%= image_tag e.user.profile_picture,:class => "image" %>
+    <%= e.user.name %>
+            <% e.room.messages.each_with_index do |em,index|  %>
+              <% if index == e.room.messages.size - 1 %>
+                <% if em.user_id != current_user.id  %>
+                <span class="noreply">未返信</span>
+                <% end %>
+            <% end %>
+    <% end %>
+    <% else %>
+            <span><br></span>
+  <% end %>
+  </div>
+<% end %>
+</div>
+

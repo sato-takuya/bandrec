@@ -1,0 +1,39 @@
+
+<!--新着ニュース-->
+<h2 class="hidden">news</h2>
+<ul class="news-list">
+    <li>
+        <a href="#">
+            新着メッセージが1件あります
+        </a>
+    </li>
+</ul>
+<!--トップの検索-->
+<h2 class="hidden">search</h2>
+<%= link_to '検索条件変更',"/top/searchcondition",class:"top-search" %>
+
+<!--コンテンツ一覧-->
+<h2 class="hidden">CONTENTS</h2>
+
+<div class="contents-box clearfix">
+<% if @users  %>
+  <% @users.each do |user| %>
+<%= link_to top_path(user) do %>
+  <div class="content-box">
+    <div class="name"><%= user.name %></div>
+      <% if user.profile_picture.attached? %>
+          <%= image_tag  user.profile_picture,class:"user_image" %>
+          <% else %>
+          <%= image_tag  "account.jpg",class:"user_image" %>
+      <% end %>
+      <div class="text-box">
+          <div class="text not-just"><%= user.info %></div>
+      </div>
+  </div>
+  <% end %>
+  <% end %>
+  <% else %>
+  <p>ユーザーがいません</p>
+  <% end %>
+</div>
+    <%= paginate(@users) %>

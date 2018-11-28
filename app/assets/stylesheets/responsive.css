@@ -1,0 +1,71 @@
+/*スマホサイズ*/
+@media(max-width:680px){
+  /*トップ画面*/
+  .main{
+    width:100%;
+    text-align:center;
+  }
+  .wrapper{
+    width:100%;
+    margin:2px 2px 2px 2px;
+  }
+  .content-box{
+    width:45%;
+  }
+  .about{
+    margin-top:35px;
+  }
+  .sidemenu{
+    display:none;
+  }
+
+  /*ハンバーガーメニュー*/
+  .global-nav .nav-item{
+    display:none;
+  }
+  .header-list .menu-icon{
+    display:block;
+  }
+  .header-list{
+    width:100%;
+  }
+
+  /*ユーザー詳細画面*/
+  .show-box,.search-box{
+    width:100%;
+  }
+  .top-box{
+    width:100%;
+    font-size:0.3rem;
+  }
+  .top-box .image-box .user_image{
+    margin:0 auto;
+    height:auto;
+    width:auto;
+    max-height:150px;
+    max-width:150px;
+  }
+  .top-box .image-box{
+    width:51%;
+    margin-right:0px;
+    margin-left:4px;
+  }
+  .top-box .last-login,.top-box .data-box,.sound_source-box{
+    width:40%;
+    margin-right:5px 5px 5px 5px;
+  }
+
+
+  .info-box{
+    width:100%;
+    font-size:1.2rem;
+  }
+
+
+
+  footer{
+    text-align:center;
+  }
+
+}
+

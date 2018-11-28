@@ -1,0 +1,55 @@
+<div class="chat-box">
+<h1 class="hidden">メッセージ</h1>
+<% @entries.each do |e| %>
+<% if e.user_id == current_user.id %>
+<% else %>
+  <h5><strong><a href="/top/<%= e.user.id %>"><%= e.user.name%>さん</a></strong></h5>
+  <% end %>
+<% end %>
+
+<div class="line-bc"><!--①LINE会話全体を囲う-->
+<% if @messages.present? %>
+<% @messages.each do |m| %>
+<% if m.user_id == current_user.id %>
+<!--③右コメント始-->
+  <div class="mycomment">
+  <span class="speech-time"><%= m.created_at.strftime("%m-%d %H:%M") %></span>
+    <p>
+    <%= m.content %>
+    </p>
+  </div>
+  <!--/③右コメント終-->
+
+<% else %>
+<!--②左コメント始-->
+  <div class="balloon6">
+    <div class="faceicon">
+	<%= image_tag  m.user.profile_picture,class:"chat-image" %>
+    </div>
+    <div class="chatting">
+      <div class="says">
+        <p><%= m.content %></p>
+      </div>
+      <span class="speech-time"><%= m.created_at.strftime("%m-%d %H:%M") %></span>
+    </div>
+  </div>
+  <!--②/左コメント終-->
+  <% end %>
+<% end %>
+ <% else %>
+    <h3 class="text-center"></h3>
+  <% end %>
+</div>
+
+  <%= form_for @message do |f| %>
+    <%= f.text_area :content, :placeholder => "メッセージを入力して下さい" , :size => "98x3" %>
+    <%= f.hidden_field :room_id, :value => @room.id %>
+    <%= f.submit "送信" %>
+  <% end %>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,113 @@
+class TopController < ApplicationController
+  before_action :searchval,only: [:search]
+
+  def index
+    if current_user
+      @users = User.where.not(id: current_user.id,user_type: 3).where.not(user_type: 3).page(params[:page]).per(12)
+    else
+      @users = User.where.not(user_type: 3).page(params[:page]).per(12)
+    end
+  end
+
+def show
+    @user = User.find_by(id: params[:id])
+    #以下、メッセージ用
+    if current_user
+    @currentUserEntry=Entry.where(user_id: current_user.id)#ログイン中のユーザーのエントリーのインスタンス
+    @userEntry=Entry.where(user_id: @user.id)#クリックしたユーザーのエントリーのインスタンス
+
+    @currentUserEntry.each do |cu|#ログイン中のユーザーのエントリーのインスタンスを一つずつcuに
+      @userEntry.each do |u|#クリックしたユーザーのエントリーのインスタンスを一つずつuに
+        if cu.room_id == u.room_id then#同じルームに入っていたら
+          @isRoom = true #isRoomをtrueに
+          @roomId = cu.room_id #roomIDはログイン中のユーザーのエントリーのroom_id
+        end
+      end
+    end
+    if @isRoom #同じルームに入っていたら飛ばす
+    else #同じルームに入っていなかったら(初めて)、ルームインスタンスとエントリーインスタンスを作る
+      @room = Room.new
+      @entry = Entry.new
+    end
+  end
+end
+
+  def searchcondition
+  end
+
+  def searchval#検索バリデーション
+    if params[:candidate] == nil
+      flash[:notice] = "楽器パートは1つ以上チェックを入れてください"
+      redirect_to :action => "searchcondition"
+    end
+    if params[:job] == nil
+      flash[:notice] = "職業は1つ以上チェックを入れてください"
+      redirect_to :action => "searchcondition"
+    end
+    if params[:future] == nil
+      flash[:notice] = "方向性は1つ以上チェックを入れてください"
+      redirect_to :action => "searchcondition"
+    end
+    if params[:gender] == nil
+      flash[:notice] = "性別は1つ以上チェックを入れてください"
+      redirect_to :action => "searchcondition"
+    end
+  end
+
+  def search
+    k = []#一時的カウント用配列
+    kk = []#楽器が該当するuserのidを格納する配列
+
+
+
+    array_inst = params[:candidate][:id].map(&:to_i)
+    array_gender = params[:gender][:id].map(&:to_i)
+    array_future = params[:future][:id].map(&:to_i)
+    array_job = params[:job][:id].map(&:to_i)
+
+
+    insts = Instrument.where(part: array_inst)#選ばれた楽器のオブジェクトを配列に
+
+    insts.each do |inst|
+      k << inst.user_id
+    end
+
+    kk = k.uniq#重複を消す
+
+     #年齢
+
+    array_age =[]
+    as = params[:age_start].to_i
+    ae = params[:age_end].to_i
+
+    bi = User.all
+
+    bi.each do |i|
+      date_format = "%Y%m%d"
+      x  = (Date.today.strftime(date_format).to_i - i.birthday.strftime(date_format).to_i) / 10000
+      if x >= as and x <= ae
+        array_age << i.birthday
+      end
+    end
+
+
+
+  if current_user
+      if params[:order] == 1
+        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).page(params[:page])
+      else
+        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
+    end
+  else
+    if params[:order] == 1
+        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).page(params[:page])
+      else
+        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).order(created_at: :desc).page(params[:page])
+    end
+  end
+
+ # def gakki_params
+  #    params.require(:gakki).permit(:name, :checkbox,:id,ingredients:[])
+# end
+  end
+end

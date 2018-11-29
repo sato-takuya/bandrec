@@ -7,8 +7,10 @@
   <p class="name"><%= current_user.name %><span class="user-type">
     <% if current_user.user_type == 1 %>
       加入希望
-    <% else %>
+    <% elsif current_user.user_type == 2 %>
       メンバー募集
+      <% else %>
+      休憩モード
     <% end %></span></p>
     <%= link_to 'マイページ', mypage_path(current_user),:class => "edit" %>
 </div>
@@ -27,7 +29,7 @@
 <% noreply(current_user,noreply_array) %>
 <%= link_to "未返信メッセージ #{noreply_array.count} 件", "/rooms",:class => "noreply-message" %>
 <% else %>
-<a class="text">メッセージ<span class="message-count">1</span></a>
+<a class="text">メッセージ</a>
 <% end %>
 </div>
 <h2 class="hidden">SidemenuFunction</h2>

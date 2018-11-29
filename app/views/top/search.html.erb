@@ -3,9 +3,12 @@
 <h2 class="hidden">news</h2>
 <ul class="news-list">
     <li>
-        <a href="#">
-            新着メッセージが1件あります
-        </a>
+    <% if current_user %>
+            <% noreply_array = [] %>
+            <% noreply(current_user,noreply_array) %>
+            <%= link_to "未返信メッセージ #{noreply_array.count} 件", "/rooms",:class => "noreply-message" %>
+        <% else %>
+    <% end %>
     </li>
 </ul>
 <!--トップの検索-->
@@ -36,4 +39,4 @@
   <p>ユーザーがいません</p>
   <% end %>
 </div>
-    <%= paginate(@users) %>
+    <div class="pagenation"><%= paginate(@users) %></div>

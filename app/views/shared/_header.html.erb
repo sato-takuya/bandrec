@@ -13,5 +13,22 @@
         <% end %>
         </ul>
     </div>
-    <span class="fa fa-bars menu-icon"></span>
+    <div class="h-menu">
+    <% if current_user %>
+        <%= link_to '', mypage_path(current_user),:class => "fa fa-user menu-icon" %>
+    <% else %>
+        <%= link_to '', "/users/sign_up",:class => "fa fa-user menu-icon" %>
+    <% end %>
+
+    <% if current_user %>
+        <%= link_to '', "/rooms",:class => "fa fa-envelope menu-icon" %>
+    <% else %>
+        <%= link_to '', "/users/sign_up",:class => "fa fa-envelope menu-icon" %>
+    <% end %>
+
+    <%= link_to '', "/top/searchcondition",:class => "fa fa-search menu-icon" %>
+    <%= link_to '', "/",:class => "fa fa-home menu-icon" %>
+    </div>
+
+
 </div>

@@ -42,7 +42,7 @@
 </div>
 
   <%= form_for @message do |f| %>
-    <%= f.text_area :content, :placeholder => "メッセージを入力して下さい" , :size => "98x3" %>
+    <%= f.text_area :content, :placeholder => "メッセージを入力して下さい" , :size => "98x3",:class => "chat-text-area" %>
     <%= f.hidden_field :room_id, :value => @room.id %>
     <%= f.submit "送信" %>
   <% end %>

@@ -126,9 +126,8 @@ header{
 }
 .header-list .menu-icon {
   color: white;
-  float: right;
-  font-size: 25px;
-  padding: 21px 0;
+  font-size: 23px;
+  padding: 10px 0px 10px 0px;
   display:none;
 }
 
@@ -286,7 +285,7 @@ header{
     height:18px;
     margin-left:3px;
     color:white;
-    background-color: #00ccff;
+    background-color: #4791d6;
     line-height: 18px;
     border-radius: 10px;
     vertical-align: middle;
@@ -318,6 +317,7 @@ header{
 .sidemenu .message a:hover{
     opacity: 0.8s;
 }
+/*
 .sidemenu .message .message-count{
     display: inline-block;
     width:20px;
@@ -328,6 +328,7 @@ header{
     line-height: 20px;
     border-radius: 10px;
 }
+*/
 
 .sidemenu .side-function{
   font-size:1.1rem;

@@ -1,5 +1,5 @@
 /*スマホサイズ*/
-@media(max-width:680px){
+@media(max-width:580px){
   /*トップ画面*/
   .main{
     width:100%;
@@ -13,54 +13,68 @@
     width:45%;
   }
   .about{
-    margin-top:35px;
+    margin-top:40px;
   }
   .sidemenu{
     display:none;
   }
 
-  /*ハンバーガーメニュー*/
-  .global-nav .nav-item{
+  /*ヘッダー表示変え*/
+  .global-nav .nav-item,.logo{
     display:none;
   }
   .header-list .menu-icon{
     display:block;
+    width:20%;
+    float:right;
   }
+  .h-menu{
+    text-align: center;
+  }
+
   .header-list{
     width:100%;
   }
 
   /*ユーザー詳細画面*/
-  .show-box,.search-box{
+  .show-box,.search-box,.mypage-box,.chat-box,.chat-text-area{
     width:100%;
   }
   .top-box{
     width:100%;
-    font-size:0.3rem;
+  }
+  .top-box .image-box{
+    width:100%;
+    margin-right:0px;
+    margin-left:4px;
+    float:none;
+    margin:0 auto;
   }
   .top-box .image-box .user_image{
     margin:0 auto;
     height:auto;
     width:auto;
-    max-height:150px;
-    max-width:150px;
+    margin:5px 5px 5px 5px;
+    max-height:300px;
+    max-width:300px;
   }
-  .top-box .image-box{
-    width:51%;
-    margin-right:0px;
-    margin-left:4px;
+  .top-box .last-login,.top-box .prof-edit{
+    margin:10px 0 0 0;
   }
-  .top-box .last-login,.top-box .data-box,.sound_source-box{
-    width:40%;
+
+  .top-box .last-login,.top-box .data-box,.sound_source-box,.top-box .prof-edit{
+    width:100%;
     margin-right:5px 5px 5px 5px;
+    float:none;
+    margin-bottom:10px;
   }
-
-
   .info-box{
     width:100%;
     font-size:1.2rem;
   }
-
+  .sign-up-box,.sign-in-box,.profile-edit-box,.search-box{
+    width:100%;
+  }
 
 
   footer{

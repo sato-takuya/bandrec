@@ -492,6 +492,11 @@ header{
     box-shadow: 0px 2px 4px 3px rgba(99, 98, 98, 0.15);
 }
 
+/*検索条件jQuery*/
+.search-slide-band{
+    display:none;
+}
+
 /*チャット画面*/
 .chat-box{
     height:550px;
@@ -634,3 +639,7 @@ textarea {
     vertical-align: middle;
 }
 
+
+.show-add,.show-band{
+    display:none;
+}

@@ -37,7 +37,7 @@
   }
 
   /*ユーザー詳細画面*/
-  .show-box,.search-box,.mypage-box,.chat-box,.chat-text-area{
+  .show-box,.search-box,.mypage-box,.chat-box,.chat-text-area,.prof-text-area{
     width:100%;
   }
   .top-box{
@@ -75,6 +75,8 @@
   .sign-up-box,.sign-in-box,.profile-edit-box,.search-box{
     width:100%;
   }
+
+
 
 
   footer{

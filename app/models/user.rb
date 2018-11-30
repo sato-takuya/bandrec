@@ -27,4 +27,8 @@ class User < ApplicationRecord
 
   scope :info,->(pub){where('info LIKE(?)', "%#{pub}%")}
 
+  scope :band_type,->(pub){where(band_type: pub)}
+
+  scope :song_type,->(pub){where(song_type: pub)}
+
 end

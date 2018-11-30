@@ -9,12 +9,9 @@
     </div>
     <div class="last-login">最終ログイン:24h以内</div>
     <div class="data-box">
+    <% if @user_type == 1 %>
       名前：<%= @user.name %><br>
-      <% if @user.user_type == 1 %>
-        加入希望
-      <% else %>
-        メンバー募集
-      <% end %>
+      加入希望
       <br>
       担当パート：<% @user.instruments.each do |i| %>
         <% case i.part %>
@@ -60,6 +57,45 @@
       趣味
       <% end %>
       <br>
+      <% else %>
+      名前：<%= @user.name %><br>
+      メンバー募集
+      <br>
+      募集パート：<% @user.instruments.each do |i| %>
+        <% case i.part %>
+          <% when 1 %>
+          Vo
+          <% when 2 %>
+          Gt
+          <% when 3 %>
+          Ba
+          <% when 4 %>
+          Key
+          <% when 5 %>
+          Dr
+          <% end %>
+        <% end %>
+      <br>
+      活動エリア：<%= @user.area %><br>
+      方向性：
+      <% if @user.future == 1 %>
+      プロ志向
+      <% else %>
+      趣味
+      <% end %><br>
+      バンド形態：
+      <% if @user.band_type == 1 %>
+      新規結成
+      <% else %>
+      活動(休止)中
+      <% end %><br>
+      楽曲のタイプ：
+      <% if @user.song_type == 1 %>
+      オリジナルが多い
+      <% else %>
+      コピーが多い
+      <% end %>
+      <% end %>
     </div>
     <div class="sound_source-box">
       音源<br><%= text_url_to_link(h(@user.sound_source)).html_safe %>

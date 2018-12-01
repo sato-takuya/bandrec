@@ -50,6 +50,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:account_update, keys: [:profile_picture])
     devise_parameter_sanitizer.permit(:account_update, keys: [:sound_source])
     devise_parameter_sanitizer.permit(:account_update, keys: [:part])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:band_type])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:song_type])
   end
 
   # before_action :configure_sign_up_params, only: [:create]

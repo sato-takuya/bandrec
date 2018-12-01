@@ -4,7 +4,7 @@
     <%= f.label :name %>
     <%= f.text_field :name %><br>
     <%= f.label :user_type %>
-    <%= f.radio_button :user_type,1%>加入希望 <%= f.radio_button :user_type,2%>メンバーを募集 <%= f.radio_button :user_type,3%>休憩<br>
+    <%= f.radio_button "user_type",1%>加入希望 <%= f.radio_button "user_type",2%>メンバーを募集 <%= f.radio_button "user_type",3%>休憩<br>
 
     <% array = [] %>
 
@@ -73,7 +73,13 @@
     <%= f.file_field :profile_picture %><br>
 
     <%= f.label :sound_source %>
-    <%= f.text_field :sound_source,size:30 %>
+    <%= f.text_field :sound_source,size:30 %><br>
+
+    <%= f.label :band_type %>
+    <%= f.radio_button :band_type,1 %>新規結成 <%= f.radio_button :band_type,2 %>活動(休止)中 <br>
+
+    <%= f.label :song_type %>
+    <%= f.radio_button :song_type,1 %>オリジナルが多い <%= f.radio_button :song_type,2 %>コピーが多い <br>
   </div>
 
   <div class="actions">

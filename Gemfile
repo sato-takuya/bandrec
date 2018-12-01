@@ -67,3 +67,8 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem "jquery-rails"
 gem 'jquery-ui-rails'
+
+
+group :production do
+  gem 'rails_12factor'
+end

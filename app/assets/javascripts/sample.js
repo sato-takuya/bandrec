@@ -7,8 +7,6 @@
       } else if ($var == 2){
         $(".show-band").show();
         $(".show-add").hide();
-      }else{
-        $("#ya").css("color", "blue");
-        };
+      };
     });
   });

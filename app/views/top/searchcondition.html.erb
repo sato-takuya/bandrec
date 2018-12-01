@@ -33,13 +33,11 @@
 
     年齢：<%= select_tag :age_start,options_for_select(array_age_first) %>才 から <%= select_tag :age_end,options_for_select(array_age_end) %>才<br>
 
-    キーワード：<%= text_field_tag :info %><br>
-
     並び順：<%= radio_button_tag :order,1,:checked => true %>おすすめ <%= radio_button_tag :order,2 %>登録が新しい順 <br>
 
     バンド形態：<%= check_box_tag 'band_type[id][]',1,:checked => true  %>新規結成  <%= check_box_tag 'band_type[id][]',2 ,:checked => true %>活動(休止)中 <br>
     楽曲タイプ：<%= check_box_tag 'song_type[id][]',1,:checked => true  %>オリジナルが多い  <%= check_box_tag 'song_type[id][]',2 ,:checked => true %>カバーが多い <br>
-
+    キーワード：<%= text_field_tag :info %><br>
 
     <%= submit_tag "検索" %>
 </div>
@@ -59,7 +57,6 @@
 
     居住地(活動場所)：<%= select_tag :area,options_for_select(array_area) %><br>
     方向性：<%= check_box_tag 'future[id][]',1,:checked => true  %>プロ志向  <%= check_box_tag 'future[id][]',2,:checked => true  %>趣味 <br>
-    キーワード：<%= text_field_tag :info %><br>
 
     並び順：<%= radio_button_tag :order,1,:checked => true %>おすすめ <%= radio_button_tag :order,2 %>登録が新しい順 <br>
 
@@ -68,6 +65,7 @@
     バンド用
     バンド形態：<%= check_box_tag 'band_type[id][]',1,:checked => true  %>新規結成  <%= check_box_tag 'band_type[id][]',2 ,:checked => true %>活動(休止)中 <br>
     楽曲タイプ：<%= check_box_tag 'song_type[id][]',1,:checked => true  %>オリジナルが多い  <%= check_box_tag 'song_type[id][]',2 ,:checked => true %>カバーが多い <br>
+    キーワード：<%= text_field_tag :info %><br>
     <%= submit_tag "検索" %>
 </div>
     <% end %>

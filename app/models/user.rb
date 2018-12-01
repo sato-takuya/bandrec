@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
 
   #プロフィール編集のバリデーション
-  validates :name, presence: true
+  #validates :name, presence: true
 
   scope :user_type,->(pub){where(user_type: pub).where.not(user_type: 3)}#ユーザータイプは何か
 

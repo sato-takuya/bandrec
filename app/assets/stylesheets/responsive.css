@@ -5,6 +5,11 @@
     width:100%;
     text-align:center;
   }
+  body{
+    width:100%;
+  }
+
+
   .wrapper{
     width:100%;
     margin:2px 2px 2px 2px;

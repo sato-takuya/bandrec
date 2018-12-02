@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hwovonopf
+  api_key: '866628314494253'
+  api_secret: gnkVxxfx4vaH_zVc-J-z6Y-pI4U
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hwovonopf
+  api_key: '866628314494253'
+  api_secret: gnkVxxfx4vaH_zVc-J-z6Y-pI4U
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hwovonopf
+  api_key: '866628314494253'
+  api_secret: gnkVxxfx4vaH_zVc-J-z6Y-pI4U
+  enhance_image_tag: true
+  static_image_support: false

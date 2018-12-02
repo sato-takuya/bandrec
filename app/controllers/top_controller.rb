@@ -44,17 +44,19 @@ end
       flash[:notice] = "楽器パートは1つ以上チェックを入れてください"
       redirect_to :action => "searchcondition"
     end
-    if params[:job] == nil
-      flash[:notice] = "職業は1つ以上チェックを入れてください"
-      redirect_to :action => "searchcondition"
-    end
-    if params[:future] == nil
-      flash[:notice] = "方向性は1つ以上チェックを入れてください"
-      redirect_to :action => "searchcondition"
-    end
-    if params[:gender] == nil
-      flash[:notice] = "性別は1つ以上チェックを入れてください"
-      redirect_to :action => "searchcondition"
+    if params[:user_type] == 1
+      if params[:job] == nil
+        flash[:notice] = "職業は1つ以上チェックを入れてください"
+        redirect_to :action => "searchcondition"
+      end
+      if params[:future] == nil
+        flash[:notice] = "方向性は1つ以上チェックを入れてください"
+        redirect_to :action => "searchcondition"
+      end
+      if params[:gender] == nil
+        flash[:notice] = "性別は1つ以上チェックを入れてください"
+        redirect_to :action => "searchcondition"
+      end
     end
   end
 
@@ -70,10 +72,16 @@ end
 if params[:song_type] != nil
   array_song = params[:song_type][:id].map(&:to_i)
 end
+
+if params[:gender] != nil
+  array_gender = params[:gender][:id].map(&:to_i)
+end
+
+if params[:job] != nil
+  array_job = params[:job][:id].map(&:to_i)
+end
     array_inst = params[:candidate][:id].map(&:to_i)
-    array_gender = params[:gender][:id].map(&:to_i)
     array_future = params[:future][:id].map(&:to_i)
-    array_job = params[:job][:id].map(&:to_i)
 
 
     insts = Instrument.where(part: array_inst)#選ばれた楽器のオブジェクトを配列に
@@ -101,7 +109,7 @@ end
     end
 
 
-    if params[:user_type] == 1 #加入を希望している人を探す場合
+  if params[:user_type] == 1 #加入を希望している人を探す場合
       if current_user #ログイン済み
           if params[:order] == 1
             @users = User.user_type(1).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).page(params[:page])
@@ -115,8 +123,7 @@ end
             @users = User.user_type(1).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).order(created_at: :desc).page(params[:page])
           end
       end
-
-    else #バンドを探している場合
+  else #バンドを探している場合
       if current_user #ログイン済み
           if params[:order] == 1
             @users = User.user_type(2).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).where.not(id: current_user.id).page(params[:page])
@@ -130,6 +137,6 @@ end
             @users = User.user_type(2).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).order(created_at: :desc).page(params[:page])
           end
       end
-    end
+  end
   end
 end

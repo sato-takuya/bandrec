@@ -484,10 +484,12 @@ header{
 
 /*新規登録*/
 .sign-up-box,.sign-in-box,.profile-edit-box,.search-box{
-    height:550px;
+    height:100%;
+    padding:20px 10px 20px 10px;
     width:840px;
     float:left;
     text-align: center;
+    line-height: 2.5rem;
     background-color:rgb(255, 255, 255);
     box-shadow: 0px 2px 4px 3px rgba(99, 98, 98, 0.15);
 }
@@ -640,6 +642,13 @@ textarea {
 }
 
 
-.show-add,.show-band{
-    display:none;
+
+
+table{
+    background-color: rgb(240, 240, 240);
+    border-collapse: collapse;
+    border: solid 1px rgb(255, 255, 255);
+    color:#333;
+    margin:0 auto;
+    box-shadow: 0px 2px 4px 3px rgba(99, 98, 98, 0.15);
 }

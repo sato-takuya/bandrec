@@ -1,13 +1,20 @@
 <div class="profile-edit-box">
 <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
+<table border = "1">
+  <tr>
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-    <%= f.label :user_type %>
-    <%= f.radio_button "user_type",1%>加入希望 <%= f.radio_button "user_type",2%>メンバーを募集 <%= f.radio_button "user_type",3%>休憩<br>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+      <td><%= f.label :user_type %></td>
+    <td><%= f.radio_button "user_type",1%>加入希望 <%= f.radio_button "user_type",2%>メンバーを募集 <%= f.radio_button "user_type",3%>休憩<br></td>
+  </tr>
+  <tr>
+  <td>パート</td>
 
     <% array = [] %>
-
+    <td>
     <% if current_user.instruments %>
       <% current_user.instruments.each do |i| %>
         <% array << i.part.to_s %>
@@ -43,47 +50,69 @@
     <% else %>
       <%= check_box "gakki", "5"%>ドラム<br>
     <% end %>
+    </td>
+    </tr>
 
-    <%= f.label :birthday %>
-    <%= f.date_select :birthday,start_year: 1960,end_year: Time.current.year,use_month_numbers: true %><br>
+    <tr>
+    <td><%= f.label :birthday %></td>
+    <td><%= f.date_select :birthday,start_year: 1960,end_year: Time.current.year,use_month_numbers: true %></td>
+    </tr>
     <% options = ["東京都","埼玉県","神奈川県",'千葉県','北海道', '青森県', '岩手県', '宮城県', '秋田県',
     '山形県', '福島県', '茨城県', '栃木県', '群馬県', '新潟県','富山県', '石川県', '福井県', '山梨県', '長野県','岐阜県', '静岡県', '愛知県', '三重県', '滋賀県',
     '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県','鳥取県', '島根県', '岡山県', '広島県', '山口県','徳島県', '香川県', '愛媛県', '高知県', '福岡県',
     '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県',
     '鹿児島県', '沖縄県'] %>
 
-    <%= f.label :area %>
-    <%= f.select :area,options %><br>
+    <tr>
+    <td><%= f.label :area %></td>
+    <td><%= f.select :area,options %></td>
+    </tr>
 
-
-    <%= f.label :gender %>
-    <%= f.radio_button :gender,1 %>男 <%= f.radio_button :gender,2 %>女 <br>
+    <tr>
+    <td><%= f.label :gender %></td>
+    <td><%= f.radio_button :gender,1 %>男 <%= f.radio_button :gender,2 %>女 </td>
     <% options = [["会社員",1],["フリーター",2],["学生",3],["その他",4]] %>
+    </tr>
 
-    <%= f.label :job %>
-    <%= f.select :job,options %><br>
+    <tr>
+    <td><%= f.label :job %></td>
+    <td><%= f.select :job,options %></td>
+    </tr>
 
-    <%= f.label :future %>
-    <%= f.radio_button :future,1 %>プロを目指す <%= f.radio_button :future,2 %>趣味 <br>
+    <tr>
+    <td><%= f.label :future %></td>
+    <td><%= f.radio_button :future,1 %>プロを目指す <%= f.radio_button :future,2 %>趣味 </td>
+    </tr>
 
-    <%= f.label :info %>
-    <%= f.text_area :info,cols:40, size: "70 x 20",:class => "prof-text-area" %><br>
+    <tr>
+    <td><%= f.label :info %></td>
+    <td><%= f.text_area :info,cols:40, size: "60 x 16",:class => "prof-text-area" %><br></td>
+    <tr>
 
-    <%= f.label :image %>
-    <%= f.file_field :profile_picture %><br>
+    <tr>
+    <td><%= f.label :image %></td>
+    <td><%= f.file_field :profile_picture %></td>
+    <tr>
 
-    <%= f.label :sound_source %>
-    <%= f.text_field :sound_source,size:30 %><br>
+    <tr>
+    <td><%= f.label :sound_source %></td>
+    <td><%= f.text_field :sound_source,size:30 %></td>
+    <tr>
 
-    <%= f.label :band_type %>
-    <%= f.radio_button :band_type,1 %>新規結成 <%= f.radio_button :band_type,2 %>活動(休止)中 <br>
+    <tr>
+    <td><%= f.label :band_type %></td>
+    <td><%= f.radio_button :band_type,1 %>新規結成 <%= f.radio_button :band_type,2 %>活動(休止)中 </td>
+    </tr>
 
-    <%= f.label :song_type %>
-    <%= f.radio_button :song_type,1 %>オリジナルが多い <%= f.radio_button :song_type,2 %>コピーが多い <br>
-  </div>
-
+    <tr>
+    <td><%= f.label :song_type %></td>
+    <td><%= f.radio_button :song_type,1 %>オリジナルが多い <%= f.radio_button :song_type,2 %>コピーが多い</td>
+    </tr>
+  <tr>
   <div class="actions">
-    <%= f.submit "Update" %>
+    <td colspan="2"><%= f.submit "Update" %></td>
   </div>
+  </tr>
+</table>
 <% end %>
 </div>

@@ -3,14 +3,14 @@ class TopController < ApplicationController
 
   def index
     if current_user
-      @users = User.where.not(id: current_user.id,user_type: 3).where.not(user_type: 3).page(params[:page]).per(12)
+      @users = User.where.not(id: current_user.id).where.not(user_type: 3).page(params[:page]).order(created_at: :desc).per(12)
     else
-      @users = User.where.not(user_type: 3).page(params[:page]).per(12)
+      @users = User.where.not(user_type: 3).page(params[:page]).order(created_at: :desc).per(12)
     end
   end
 
 def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
     #以下、メッセージ用
     if current_user
     @currentUserEntry=Entry.where(user_id: current_user.id)#ログイン中のユーザーのエントリーのインスタンス
@@ -63,13 +63,17 @@ end
     kk = []#楽器が該当するuserのidを格納する配列
 
 
+if params[:band_type] != nil
+  array_band = params[:band_type][:id].map(&:to_i)
+end
 
+if params[:song_type] != nil
+  array_song = params[:song_type][:id].map(&:to_i)
+end
     array_inst = params[:candidate][:id].map(&:to_i)
     array_gender = params[:gender][:id].map(&:to_i)
     array_future = params[:future][:id].map(&:to_i)
     array_job = params[:job][:id].map(&:to_i)
-    array_band = params[:band_type][:id].map(&:to_i)
-    array_song = params[:song_type][:id].map(&:to_i)
 
 
     insts = Instrument.where(part: array_inst)#選ばれた楽器のオブジェクトを配列に
@@ -97,40 +101,35 @@ end
     end
 
 
-    if params[:user_type] == 1#加入を希望している人を探す場合
-      if current_user#ログイン済み
+    if params[:user_type] == 1 #加入を希望している人を探す場合
+      if current_user #ログイン済み
           if params[:order] == 1
-            @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).page(params[:page])
-            else
-            @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
+            @users = User.user_type(1).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).page(params[:page])
+          else
+            @users = User.user_type(1).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
           end
       else#未ログイン
           if params[:order] == 1
-            @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).page(params[:page])
+            @users = User.user_type(1).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).page(params[:page])
           else
-            @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).order(created_at: :desc).page(params[:page])
+            @users = User.user_type(1).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).order(created_at: :desc).page(params[:page])
           end
       end
+
     else #バンドを探している場合
-      if current_user#ログイン済み
+      if current_user #ログイン済み
           if params[:order] == 1
-            @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).where.not(id: current_user.id).page(params[:page])
-            else
-            @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
+            @users = User.user_type(2).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).where.not(id: current_user.id).page(params[:page])
+          else
+            @users = User.user_type(2).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
           end
       else#未ログイン
           if params[:order] == 1
-            @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).page(params[:page])
+            @users = User.user_type(2).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).page(params[:page])
           else
-            @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).order(created_at: :desc).page(params[:page])
+            @users = User.user_type(2).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).order(created_at: :desc).page(params[:page])
           end
       end
     end
-
-
-
- # def gakki_params
-  #    params.require(:gakki).permit(:name, :checkbox,:id,ingredients:[])
-# end
   end
 end

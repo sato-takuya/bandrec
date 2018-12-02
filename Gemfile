@@ -67,9 +67,9 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem "jquery-rails"
 gem 'jquery-ui-rails'
-gem 'cloudinary'
 
 
 group :production do
   gem 'rails_12factor'
+  gem 'cloudinary'
 end

@@ -28,6 +28,14 @@
 </tr>
 
 <tr>
+<td>キーワード</td><td><%= text_field_tag :info %></td>
+</tr>
+
+<tr>
+<td>並び順</td><td><%= radio_button_tag :order,1,:checked => true %>おすすめ <%= radio_button_tag :order,2 %>登録が新しい順</td>
+</tr>
+
+<tr>
 <td>▼加入希望を検索</td><td>----</td>
 </tr>
 
@@ -61,14 +69,6 @@
 
 <tr>
 <td>楽曲のタイプ</td><td><%= check_box_tag 'song_type[id][]',1,:checked => true  %>オリジナルが多い  <%= check_box_tag 'song_type[id][]',2 ,:checked => true %>コピーが多い</td>
-</tr>
-
-<tr>
-<td>キーワード</td><td><%= text_field_tag :info %></td>
-</tr>
-
-<tr>
-<td>並び順</td><td><%= radio_button_tag :order,1,:checked => true %>おすすめ <%= radio_button_tag :order,2 %>登録が新しい順</td>
 </tr>
 
 <tr>

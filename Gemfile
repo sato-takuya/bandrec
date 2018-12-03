@@ -67,9 +67,8 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem "jquery-rails"
 gem 'jquery-ui-rails'
-gem "aws-sdk-s3", require: false #追記
+gem "aws-sdk-s3", require: false
 
 group :production do
   gem 'rails_12factor'
-  #gem 'cloudinary'
 end

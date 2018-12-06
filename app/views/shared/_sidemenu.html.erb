@@ -3,6 +3,8 @@
   <div class="profile">
   <% if current_user.profile_picture.attached? %>
     <%= image_tag  current_user.profile_picture,:class => "image" %>
+  <% else %>
+        <%= image_tag  "account.jpg",class:"user_image" %>
   <% end %>
   <p class="name"><%= current_user.name %><span class="user-type">
     <% if current_user.user_type == 1 %>

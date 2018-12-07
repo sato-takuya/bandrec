@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     '/users/sign_in' # サインアウト後のリダイレクト先URL
   end
 
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:birthday])
   end

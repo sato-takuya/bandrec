@@ -24,10 +24,11 @@
       <main class="main">
       <!--アバウト-->
         <h2 class="hidden">Bandrecとは</h2>
-        <a href="#" class="about">
-            <div class="content">
-                ---
+        <%= link_to("/top/about") do %>
+            <div class="about_bc">
+                <div class="content">Bandrec 事前登録受付中！</div>
             </div>
+        <% end %>
             <div class="flash">
         <%= flash[:notice]  %>
       </div>

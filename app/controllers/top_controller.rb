@@ -1,5 +1,18 @@
 class TopController < ApplicationController
+  #before_action :authenticate_user!,except: [:index]
   before_action :searchval,only: [:search]
+  before_action :prereg ,only: [:show,:searchcondition]
+
+  def prereg
+    if current_user
+      render "top/prereg"
+    else
+    redirect_to :new_user_registration
+    end
+  end
+
+  def privacy_policy
+  end
 
   def index
     if current_user
@@ -8,6 +21,7 @@ class TopController < ApplicationController
       @users = User.where.not(user_type: 3).page(params[:page]).order(created_at: :desc).per(12)
     end
   end
+
 
 def show
     @user = User.find(params[:id])

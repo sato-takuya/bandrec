@@ -132,22 +132,25 @@ header{
 }
 
 /*サービス紹介*/
-.about{
+.about_bc{
     display: block;
-    height:110px;
+    height:150px;
     width:100%;
     margin-bottom: 30px;
     /*box-shadow: 0 6px 4px -4px rgba(0,0,0,0.15);*/
-    background-color: #ffffff;
+    background:url(bass.jpg);
     border:0.5px solid rgb(216, 216, 216);
+    cursor: pointer;
 }
-.about:hover{
+.about_bc:hover{
     opacity:0.85;
 }
-.about .content{
-    color:rgb(117, 117, 117);
+.about_bc .content{
+    color:rgb(230, 230, 230);
     text-align: center;
-    line-height: 110px;
+    line-height: 150px;
+    font-size:3rem;
+    font-weight:bold;
 }
 
 /*新着情報*/
@@ -483,7 +486,7 @@ header{
 }
 
 /*新規登録*/
-.sign-up-box,.sign-in-box,.profile-edit-box,.search-box{
+.sign-up-box,.sign-in-box,.profile-edit-box,.search-box,.about,.privacy-policy{
     height:100%;
     padding:20px 10px 20px 10px;
     width:840px;
@@ -641,9 +644,6 @@ textarea {
     vertical-align: middle;
 }
 
-
-
-
 table{
     background-color: rgb(240, 240, 240);
     border-collapse: collapse;
@@ -655,4 +655,32 @@ table{
 
 .show-add,.show-band{
     display:none;
+}
+
+
+/*サービス紹介*/
+.about .b{
+    display: block;
+    cursor: pointer;
+    height:60px;
+    width:350px;
+    line-height:60px;
+    text-align:center;
+    margin:0 auto;
+    font-size: 2rem;
+    margin-top:10px;
+    border-radius: 20px;
+    color:rgb(173, 16, 16);
+    font-weight:bold;
+    border:1px solid rgb(187, 187, 187);
+    box-shadow: 0px 4px 4px 2px rgba(56, 56, 56, 0.15);
+}
+.about-image{
+    height:300px;
+    width:auto;
+    border:1px solid rgb(189, 189, 189);
+}
+
+.about span{
+    border-bottom:3px solid rgb(255, 230, 0);
 }

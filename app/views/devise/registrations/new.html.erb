@@ -1,5 +1,8 @@
 <div class="sign-up-box">
 <h2>事前登録</h2>
+
+<%= link_to 'そもそもBandrecとは？こちらで詳しく解説しています', "/top/about",:class => "bandrectoha" %>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 

@@ -146,11 +146,10 @@ header{
     opacity:0.85;
 }
 .about_bc .content{
-    width:100%;
     color:rgb(230, 230, 230);
     text-align: center;
     line-height: 150px;
-    font-size:3rem;
+    font-size:2.5rem;
     font-weight:bold;
 }
 

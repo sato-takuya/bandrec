@@ -2,6 +2,11 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
   before_action :prereg #事前登録が終わったら消す
 
+
+  def prereg
+    redirect_to :new_user_registration
+  end
+
   def index
     @currentEntries = current_user.entries
     myRoomIds = []

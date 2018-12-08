@@ -132,7 +132,7 @@ header{
 }
 
 /*サービス紹介*/
-.about_bc{
+.about_br{
     display: block;
     height:150px;
     width:100%;
@@ -142,10 +142,10 @@ header{
     border:0.5px solid rgb(216, 216, 216);
     cursor: pointer;
 }
-.about_bc:hover{
+.about_br:hover{
     opacity:0.85;
 }
-.about_bc .content{
+.about_br .content{
     color:rgb(230, 230, 230);
     text-align: center;
     line-height: 150px;

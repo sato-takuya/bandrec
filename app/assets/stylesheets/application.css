@@ -691,6 +691,10 @@ table{
     border-bottom:3px solid rgb(255, 230, 0);
     font-weight: bold;
 }
+
+.prereg{
+    width:100%;
+}
 .prereg span{
     border-bottom:3px solid rgb(255, 230, 0);
     font-weight: bold;

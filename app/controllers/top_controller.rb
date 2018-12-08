@@ -102,10 +102,12 @@ end
 
     bi.each do |i|
       date_format = "%Y%m%d"
+      if i.birthday != nil
       x  = (Date.today.strftime(date_format).to_i - i.birthday.strftime(date_format).to_i) / 10000
       if x >= as and x <= ae
         array_age << i.birthday
       end
+    end
     end
 
 

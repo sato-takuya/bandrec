@@ -69,17 +69,6 @@
     </tr>
 
     <tr>
-    <td><%= f.label :gender %></td>
-    <td><%= f.radio_button :gender,1 %>男 <%= f.radio_button :gender,2 %>女 </td>
-    <% options = [["会社員",1],["フリーター",2],["学生",3],["その他",4]] %>
-    </tr>
-
-    <tr>
-    <td><%= f.label :job %></td>
-    <td><%= f.select :job,options %></td>
-    </tr>
-
-    <tr>
     <td><%= f.label :future %></td>
     <td><%= f.radio_button :future,1 %>プロを目指す <%= f.radio_button :future,2 %>趣味 </td>
     </tr>
@@ -98,6 +87,18 @@
     <td><%= f.label :sound_source %></td>
     <td><%= f.text_field :sound_source,size:30 %></td>
     <tr>
+
+    <tr>
+    <td><%= f.label :gender %></td>
+    <td><%= f.radio_button :gender,1 %>男 <%= f.radio_button :gender,2 %>女 </td>
+    </tr>
+
+    <% options = [["---",nil],["会社員",1],["フリーター",2],["学生",3],["その他",4]] %>
+
+    <tr>
+    <td><%= f.label :job %></td>
+    <td><%= f.select :job,options %></td>
+    </tr>
 
     <tr>
     <td><%= f.label :band_type %></td>

@@ -66,8 +66,8 @@ ja:
         name: 名前
         birthday: 誕生日
         area: 活動場所
-        gender: 性別
-        job: 仕事
+        gender: 性別(加入希望の方のみ記入)
+        job: 仕事(加入希望の方のみ記入)
         future: 方向性
         user_type: ステータス
         info: 自己紹介
@@ -78,8 +78,8 @@ ja:
         password: パスワード
         password_confirmation: パスワード(確認用)
         remember_me: 自動ログイン
-        band_type: バンド形態
-        song_type: 楽曲形態
+        band_type: バンド形態(メンバー募集の方のみ記入)
+        song_type: 楽曲形態(メンバー募集の方のみ記入)
       top:
         name: 名前
         birthday: 誕生日

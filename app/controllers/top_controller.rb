@@ -44,7 +44,8 @@ end
       flash[:notice] = "楽器パートは1つ以上チェックを入れてください"
       redirect_to :action => "searchcondition"
     end
-    if params[:user_type] == 1
+
+    if params[:user_type].to_s  == "1"
       if params[:job] == nil
         flash[:notice] = "職業は1つ以上チェックを入れてください"
         redirect_to :action => "searchcondition"
@@ -92,11 +93,11 @@ end
 
     kk = k.uniq#重複を消す
 
-     #年齢
-
-    array_age =[]
+    #年齢
+  array_age =[]
     as = params[:age_start].to_i
     ae = params[:age_end].to_i
+
 
     bi = User.all
 
@@ -110,19 +111,42 @@ end
     end
     end
 
+if params[:user_type].to_s == "1" #加入希望を探す
 
-  if current_user
-      if params[:order] == 1
+      if current_user
+      if params[:order].to_s == "1"
         @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).page(params[:page])
       else
         @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
     end
   else
-    if params[:order] == 1
+    if params[:order].to_s == "1"
         @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).page(params[:page])
       else
         @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).order(created_at: :desc).page(params[:page])
     end
   end
+end
+
+if params[:user_type].to_s == "2" #メンバー募集を探す
+  if current_user
+      if params[:order].to_s == "1"
+        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).where.not(id: current_user.id).page(params[:page])
+      else
+        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
+    end
+  else
+    if params[:order].to_s == "1"
+        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).page(params[:page])
+      else
+        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).order(created_at: :desc).page(params[:page])
+    end
+  end
+end
+
+
+
+
+
   end
 end

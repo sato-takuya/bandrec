@@ -659,6 +659,11 @@ table{
 
 
 /*サービス紹介*/
+
+.about{
+    width:100%;
+}
+
 .about .b{
     display: block;
     cursor: pointer;
@@ -676,8 +681,8 @@ table{
     box-shadow: 0px 4px 4px 2px rgba(56, 56, 56, 0.15);
 }
 .about-image{
-    height:300px;
-    width:auto;
+    height:auto;
+    width:100%;
     border:1px solid rgb(189, 189, 189);
 }
 

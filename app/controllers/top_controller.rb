@@ -14,6 +14,9 @@ class TopController < ApplicationController
   def privacy_policy
   end
 
+  def inquiry
+  end
+
   def index
     if current_user
       @users = User.where(id: [11,21,31,41,51,61,71,81,91,141]).page(params[:page]).order(created_at: :desc).per(12)#事前登録用

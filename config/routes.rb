@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get "search" ,on: :collection
     get "about" ,on: :collection
     get "privacy_policy" ,on: :collection
+    get "inquiry",on: :collection
   end
 
   resources :messages, :only => [:create]

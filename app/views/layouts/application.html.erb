@@ -8,7 +8,7 @@
     <%= csp_meta_tag %>
 
     <meta name="twitter:card" content='summary_large_image' />
-    <meta property="twitter:url" content='https://bandrec.herokuapp.com' />
+    <meta property="twitter:url" content='https://www.bandrec.net' />
     <meta property="twitter:title" content='Bandrec|バンドメンバー募集サイト' />
     <meta property="twitter:description" content='バンドメンバーを簡単に募集・検索できるサービスです' />
     <meta name="twitter:image" content="<%= asset_url('bass.jpg') %>" />
@@ -19,6 +19,9 @@
     <%= javascript_include_tag 'application' %>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <script src="sample.js"></script>
+
+    <%= analytics_init if Rails.env.production? %>
+
   </head>
 
   <body>

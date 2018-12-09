@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
 
-  config.action_mailer.default_url_options = { host: 'https://bandrec.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'https://www.bandrec.net' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings =
   {
@@ -14,6 +14,8 @@ Rails.application.configure do
   authentication: :plain,
   enable_starttls_auto: true
   }
+
+  GA.tracker = 'UA-130682057-1'
 
   # Code is not reloaded between requests.
   config.cache_classes = true

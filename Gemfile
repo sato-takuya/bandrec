@@ -68,6 +68,7 @@ gem 'rails-i18n'
 gem "jquery-rails"
 gem 'jquery-ui-rails'
 gem "aws-sdk-s3", require: false
+gem 'google-analytics-rails'
 
 group :production do
   gem 'rails_12factor'

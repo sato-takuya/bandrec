@@ -16,9 +16,11 @@ class TopController < ApplicationController
 
   def index
     if current_user
-      @users = User.where.not(id: current_user.id).where.not(user_type: 3).page(params[:page]).order(created_at: :desc).per(12)
+      @users = User.where(id: [11,21,31,41,51,61,71,81,91,141]).page(params[:page]).order(created_at: :desc).per(12)#事前登録用
+      #@users = User.where.not(id: current_user.id).where.not(user_type: 3).page(params[:page]).order(created_at: :desc).per(12)
     else
-      @users = User.where.not(user_type: 3).page(params[:page]).order(created_at: :desc).per(12)
+      @users = User.where(id: [11,21,31,41,51,61,71,81,91,141]).page(params[:page]).order(created_at: :desc).per(12)#事前登録用
+      #@users = User.where.not(user_type: 3).page(params[:page]).order(created_at: :desc).per(12)
     end
   end
 

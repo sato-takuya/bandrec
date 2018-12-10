@@ -4,7 +4,7 @@
       <% if @user.profile_picture.attached? %>
         <%= image_tag  @user.profile_picture,class:"user_image" %>
       <% else %>
-        <% if @user.name.length == 1 || @user.name.length == 2 || @user.name.length ==  3 || @user.name.length == 4 %>
+        <% if @user.name.length == 3 || @user.name.length == 4 || @user.name.length ==  5 || @user.name.length == 6 %>
         <%= image_tag  "#{@user.name.length}.png",class:"user_image" %>
         <% else %>
         <%= image_tag  "4.png",class:"user_image" %>

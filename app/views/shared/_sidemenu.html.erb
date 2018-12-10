@@ -4,10 +4,10 @@
   <% if current_user.profile_picture.attached? %>
     <%= image_tag  current_user.profile_picture,:class => "image" %>
   <% else %>
-        <% if current_user.name.length == 1 || current_user.name.length == 2 ||current_user.name.length ==  3 || current_user.name.length == 4 %>
+        <% if current_user.name.length == 3 || current_user.name.length == 4 ||current_user.name.length ==  5 || current_user.name.length == 6 %>
         <%= image_tag  "#{@user.name.length}.png",class:"image" %>
         <% else %>
-        <%= image_tag  "4.png",class:"image" %>
+        <%= image_tag  "6.png",class:"image" %>
       <% end %>
   <% end %>
   <p class="name"><%= current_user.name %><span class="user-type">

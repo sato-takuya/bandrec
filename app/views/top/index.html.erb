@@ -30,7 +30,11 @@
       <% if user.profile_picture.attached? %>
           <%= image_tag  user.profile_picture,class:"user_image" %>
           <% else %>
-          <%= image_tag  "account.jpg",class:"user_image" %>
+          <% if user.name.length == 1 || user.name.length == 2 || user.name.length ==  3 || user.name.length == 4 %>
+        <%= image_tag  "#{user.name.length}.png",class:"user_image" %>
+        <% else %>
+        <%= image_tag  "4.png",class:"user_image" %>
+      <% end %>
       <% end %>
       <div class="text-box">
           <div class="text not-just"><%= user.info %></div>

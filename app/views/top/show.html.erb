@@ -13,7 +13,12 @@
       名前：<%= @user.name %><br>
       加入希望
       <br>
-      担当パート：<% @user.instruments.each do |i| %>
+      <% if @user.user_type == 1 %>
+      担当パート
+      <% else %>
+      募集パート
+      <% end %>
+      ：<% @user.instruments.each do |i| %>
         <% case i.part %>
           <% when 1 %>
           Vo

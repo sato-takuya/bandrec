@@ -721,3 +721,44 @@ table{
     font-weight: bold;
     color:rgb(255, 0, 0);
 }
+
+
+.twitter-share-button{
+    display: block;
+    margin:0 auto;
+}
+
+.top .share{
+	position: relative;
+    display: block;
+    margin:0 auto;
+    margin-top:20px;
+	width:360px;
+ 	color: rgb(248, 248, 248);
+    background: #b9203a;
+    border-radius: 20px;
+    padding-left:5px;
+    box-shadow: 0 2px 10px 1px #b6b5b5;
+}
+
+.top .share:before{
+	content: "";
+	position: absolute;
+	top: -30px;
+	left: 50%;
+ 	margin-left: -15px;
+	border: 15px solid transparent;
+    border-bottom: 15px solid #b9203a;
+}
+
+/*
+.top .share{
+    display: block;
+    margin:0 auto;
+    width:360px;
+    border-radius: 20px;
+    color:rgb(184, 31, 31);
+    font-weight:bold;
+    background-color:rgb(248, 248, 248);
+}
+*/

@@ -4,7 +4,7 @@
       <% if @user.profile_picture.attached? %>
       <%= image_tag  @user.profile_picture,class:"user_image" %>
       <% else %>
-      <%= image_tag  "account.jpg",class:"user_image" %>
+      <%= image_tag  "account.png",class:"user_image" %>
       <% end %>
     </div>
     <%= link_to 'プロフィール編集', profile_edit_path,:class  => "prof-edit" %>

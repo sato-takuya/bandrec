@@ -19,9 +19,9 @@ class TopController < ApplicationController
 
   def index
     if current_user
-      @users = User.order("RAND()").where.not(id: current_user.id).where.not(user_type: 3).page(params[:page]).per(12)
+      @users = User.where.not(id: current_user.id).where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
     else
-      @users = User.order("RAND()").where.not(user_type: 3).page(params[:page]).per(12)
+      @users = User.where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
       #.order(created_at: :desc)
     end
   end

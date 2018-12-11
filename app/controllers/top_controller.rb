@@ -22,7 +22,6 @@ class TopController < ApplicationController
       @users = User.where.not(id: current_user.id).where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
     else
       @users = User.where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
-      #.order(created_at: :desc)
     end
   end
 

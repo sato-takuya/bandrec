@@ -7,15 +7,15 @@ class RoomsController < ApplicationController
     redirect_to :new_user_registration
   end
 
-  def index
-    @currentEntries = current_user.entries
+  def index #メッセージ一覧を表示する
+    @currentEntries = current_user.entries #ログイン中のユーザーが入ることのできる部屋(room)の鍵情報たち
     myRoomIds = []
 
     @currentEntries.each do |entry|
-    myRoomIds << entry.room.id #自分が入っているRoomのidの情報
+    myRoomIds << entry.room.id #自分が入ることができる部屋(room)のid
   end
 
-  @anotherEntries = Entry.where(room_id: myRoomIds).where('user_id != ?',current_user.id) #自分が入っているRoom(where文で配列を渡しています)かつuser_idが自分のidではない
+  @anotherEntries = Entry.where(room_id: myRoomIds).where('user_id != ?',current_user.id) #自分が入ることができる部屋(Room)かつuser_idが自分のidではない
   end
 
   def create #部屋(チャットルーム)を作る

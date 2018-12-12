@@ -3,7 +3,11 @@
 <% @anotherEntries.reverse.each do |e| %>
 <div class= "room-content">
   <%= link_to room_path(e.room.id) do %>
+  <% if e.user.profile_picture.attached? %>
   <%= image_tag e.user.profile_picture,:class => "image" %>
+  <% else %>
+        <%= image_tag  "account.png",class:"image" %>
+  <% end %>
     <%= e.user.name %>
             <% e.room.messages.each_with_index do |em,index|  %>
               <% if index == e.room.messages.size - 1 %>

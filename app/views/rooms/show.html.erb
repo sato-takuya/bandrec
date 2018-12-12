@@ -24,7 +24,11 @@
 <!--②左コメント始-->
   <div class="balloon6">
     <div class="faceicon">
-	<%= image_tag  m.user.profile_picture,class:"chat-image" %>
+    <% if m.user.profile_picture.attached? %>
+    <%= image_tag  m.user.profile_picture,class:"chat-image" %>
+  <% else %>
+        <%= image_tag  "account.png",class:"image" %>
+  <% end %>
     </div>
     <div class="chatting">
       <div class="says">

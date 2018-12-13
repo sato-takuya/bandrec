@@ -105,6 +105,11 @@
     <td><%= f.label :song_type %></td>
     <td><%= f.radio_button :song_type,1 %>オリジナルが多い <%= f.radio_button :song_type,2 %>コピーが多い</td>
     </tr>
+
+    <tr>
+    <td><%= f.label :mail_notice %></td>
+    <td><%= f.radio_button :mail_notice,1, :checked => true %>通知する <%= f.radio_button :mail_notice,2 %>通知しない</td>
+    </tr>
   <tr>
   <div class="actions">
     <td colspan="2"><%= f.submit "Update" %></td>

@@ -80,6 +80,7 @@ ja:
         remember_me: 自動ログイン
         band_type: バンド形態(メンバー募集の方のみ記入)
         song_type: 楽曲形態(メンバー募集の方のみ記入)
+        mail_notice: 新着メッセージをメールで通知
       top:
         name: 名前
         birthday: 誕生日

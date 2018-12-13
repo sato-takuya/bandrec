@@ -45,7 +45,19 @@
             <div class="flash">
         <%= flash[:notice]  %>
       </div>
-        </a>
+        <!--新着ニュース-->
+<div class="top">
+<h2 class="hidden">新着メッセージ</h2>
+<ul class="news-list">
+    <li>
+    <% if current_user %>
+            <% noreply_array = [] %>
+            <% noreply(current_user,noreply_array) %>
+            <%= link_to "未返信メッセージ #{noreply_array.count} 件", "/rooms",:class => "noreply-message" %>
+        <% else %>
+    <% end %>
+    </li>
+</ul>
           <%= yield %>
       </main>
       <div class="sidemenu">

@@ -19,7 +19,7 @@ class TopController < ApplicationController
 
   def index
     if current_user
-      @users = User.include(:profile_picture).where.not(id: current_user.id).where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
+      @users = User.where.not(id: current_user.id).where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
     else
       #@users = User.where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
       @array = User.where.not(user_type: 3).order(created_at: "DESC")

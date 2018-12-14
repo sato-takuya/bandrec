@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
 
+  extend OrderAsSpecified
+
 
   #プロフィール編集のバリデーション
   #validates :name, presence: true

@@ -21,7 +21,37 @@ class TopController < ApplicationController
     if current_user
       @users = User.where.not(id: current_user.id).where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
     else
-      @users = User.where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
+      #@users = User.where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
+      @array = User.where.not(user_type: 3).order(created_at: "DESC")
+
+      all_id=[]
+
+      @array.each do |i|
+        all_id << i.id
+      end
+
+      user_id_A =[]
+      user_id_B =[]
+
+      user_all = @array.count
+      count_up = 0
+
+        user_all.times do
+          x = User.find(all_id[count_up])
+          if x.profile_picture.attached?
+          user_id_A << x.id
+          else
+            user_id_B << x.id
+          end
+          count_up = count_up + 1
+      end
+
+      user_id_A.push(user_id_B)
+      user_id_A.flatten!
+      @users = User.where(id: user_id_A).order_as_specified(id: user_id_A).page(params[:page]).per(12)
+
+
+
     end
   end
 

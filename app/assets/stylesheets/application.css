@@ -162,11 +162,14 @@ header{
     font-size: 1.0rem;
     background-color:rgb(236, 236, 236);
     text-align: center;
+    overflow-y: auto;
 }
 
 .news-list li a{
-    color:rgb(240, 238, 238);
-    line-height: 70px;
+    display: block;
+    margin-top:5px;
+    color:rgb(206, 2, 2);
+    font-size:1rem;
 }
 
 /*ホームの検索ボタン*/
@@ -728,7 +731,7 @@ table{
     margin:0 auto;
 }
 
-.top .share{
+.share{
 	position: relative;
     display: block;
     margin:0 auto;
@@ -742,7 +745,7 @@ table{
     font-size:0.6rem;
 }
 
-.top .share:before{
+.share:before{
 	content: "";
 	position: absolute;
 	top: -30px;
@@ -761,6 +764,7 @@ table{
     background-color:rgb(255, 255, 255);
     box-shadow: 0px 2px 4px 3px rgba(99, 98, 98, 0.15);
 }
+
 
 /*
 .top .share{

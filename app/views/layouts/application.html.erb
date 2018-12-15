@@ -11,7 +11,7 @@
 
     <meta name="twitter:card" content='summary_large_image' />
     <meta property="twitter:url" content='https://www.anzujam.net' />
-    <meta property="twitter:title" content='and’ jam|バンドメンバー募集サイト' />
+    <meta property="twitter:title" content='and’s jam|バンドメンバー募集サイト' />
     <meta property="twitter:description" content='バンドメンバーを簡単に募集・検索できるサービスです' />
     <meta name="twitter:image" content="<%= asset_url('andsjam.png') %>" />
 
@@ -53,8 +53,15 @@
     <% if current_user %>
             <% noreply_array = [] %>
             <% noreply(current_user,noreply_array) %>
-            <%= link_to "未返信メッセージ #{noreply_array.count} 件", "/rooms",:class => "noreply-message" %>
-        <% else %>
+            <% if noreply_array.count != 0 %>
+              <%= link_to "未返信メッセージ #{noreply_array.count} 件", "/rooms",:class => "noreply-message" %><br>
+            <% end %>
+    <% end %>
+    <% if current_user %>
+    <% if current_user.profile_picture.attached? %>
+      <% else %>
+      <%= link_to "プロフィール画像を登録しましょう", mypage_path(current_user),:class => "noreply-message" %>
+    <% end %>
     <% end %>
     </li>
 </ul>

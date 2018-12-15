@@ -1,15 +1,3 @@
-<!--新着ニュース-->
-<h2 class="hidden">news</h2>
-<ul class="news-list">
-    <li>
-    <% if current_user %>
-            <% noreply_array = [] %>
-            <% noreply(current_user,noreply_array) %>
-            <%= link_to "未返信メッセージ #{noreply_array.count} 件", "/rooms",:class => "noreply-message" %>
-        <% else %>
-    <% end %>
-    </li>
-</ul>
 <!--トップの検索-->
 <h2 class="hidden">search</h2>
 <%= link_to '検索条件変更',"/top/searchcondition",class:"top-search" %>

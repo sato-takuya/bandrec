@@ -1,5 +1,5 @@
 class TopController < ApplicationController
-  #before_action :authenticate_user!,except: [:index]
+  before_action :authenticate_user!,only: [:searchcondition]
   before_action :searchval,only: [:search]
   before_action :prereg ,only: [:show,:searchcondition]
 

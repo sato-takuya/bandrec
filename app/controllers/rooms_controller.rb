@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
-  before_action :prereg #事前登録が終わったら消す
+  #before_action :prereg #事前登録が終わったら消す
 
 
   def prereg

@@ -81,6 +81,15 @@
     width:100%;
   }
 
+  .top-image,.new-border{
+    float:none;
+    width:95%;
+    margin:0 auto;
+  }
+
+  .news-list{
+    margin-top:40px;
+  }
 
 
 

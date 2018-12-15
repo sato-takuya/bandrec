@@ -1,7 +1,13 @@
 class TopController < ApplicationController
-  before_action :authenticate_user!,only: [:searchcondition]
+  #before_action :authenticate_user!,only: [:searchcondition]
   before_action :searchval,only: [:search]
-  before_action :prereg ,only: [:show,:searchcondition]
+  #before_action :prereg ,only: [:show,:searchcondition]
+
+  before_action :authenticate,except:[:about]
+
+def authenticate
+  redirect_to new_user_registration_url unless user_signed_in?
+end
 
   def prereg
     if current_user

@@ -12,7 +12,7 @@
     <meta name="twitter:card" content='summary_large_image' />
     <meta property="twitter:url" content='https://www.anzujam.net' />
     <meta property="twitter:title" content='and’s jam|バンドメンバー募集サイト' />
-    <meta property="twitter:description" content='バンドメンバーを簡単に募集・検索できるサービスです' />
+    <meta property="twitter:description" content='and’s jam(あんずジャム)はバンドメンバーを簡単に募集・検索できるサービスです' />
     <meta name="twitter:image" content="<%= asset_url('andsjam.png') %>" />
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -36,20 +36,22 @@
     <div class="wrapper clearfix">
       <main class="main">
       <!--アバウト-->
-        <h2 class="hidden">and’s jamとは</h2>
+        <%#<h2 class="hidden">and’s jamとは</h2>
         <%= link_to("/top/about") do %>
-            <div class="about_br">
-                <div class="content">What Is and’s jam？</div>
+            <%#<div class="about_br">
+                <div class="content">What Is and’s jam(あんずジャム)？</div>
             </div>
         <% end %>
-            <div class="flash">
-        <%= flash[:notice]  %>
-      </div>
-        <!--新着ニュース-->
-<div class="top">
-<h2 class="hidden">新着メッセージ</h2>
+        <% if current_user %>
+        <h2 class="hidden">新着メッセージ</h2>
 <ul class="news-list">
     <li>
+    <% if current_user %>
+    <% if current_user.profile_picture.attached? %>
+      <% else %>
+      <%= link_to "プロフィール画像を登録しましょう", mypage_path(current_user),:class => "noreply-message" %>
+    <% end %>
+    <% end %>
     <% if current_user %>
             <% noreply_array = [] %>
             <% noreply(current_user,noreply_array) %>
@@ -57,14 +59,15 @@
               <%= link_to "未返信メッセージ #{noreply_array.count} 件", "/rooms",:class => "noreply-message" %><br>
             <% end %>
     <% end %>
-    <% if current_user %>
-    <% if current_user.profile_picture.attached? %>
-      <% else %>
-      <%= link_to "プロフィール画像を登録しましょう", mypage_path(current_user),:class => "noreply-message" %>
-    <% end %>
-    <% end %>
     </li>
 </ul>
+<% end%>
+            <div class="flash">
+        <%= flash[:notice]  %>
+      </div>
+        <!--新着ニュース-->
+<div class="top">
+
           <%= yield %>
       </main>
       <div class="sidemenu">

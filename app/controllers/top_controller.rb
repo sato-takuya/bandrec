@@ -19,10 +19,10 @@ class TopController < ApplicationController
 
   def index
     if current_user
-      @users = User.where.not(id: current_user.id).where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
+      @users = User.with_attached_profile_picture.where.not(id: current_user.id).where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
     else
       #@users = User.where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
-      @array = User.where.not(user_type: 3).order(created_at: "DESC")
+      @array = User.with_attached_profile_picture.where.not(user_type: 3).order(created_at: "DESC")
 
       all_id=[]
 
@@ -48,7 +48,7 @@ class TopController < ApplicationController
 
       user_id_A.push(user_id_B)
       user_id_A.flatten!
-      @users = User.where(id: user_id_A).order_as_specified(id: user_id_A).page(params[:page]).per(12)
+      @users = User.with_attached_profile_picture.where(id: user_id_A).order_as_specified(id: user_id_A).page(params[:page]).per(12)
 
 
 
@@ -146,7 +146,7 @@ end
     ae = params[:age_end].to_i
 
 
-    bi = User.all
+    bi = User.with_attached_profile_picture.all
 
     bi.each do |i|
       date_format = "%Y%m%d"
@@ -162,15 +162,15 @@ if params[:user_type].to_s == "1" #加入希望を探す
 
       if current_user
       if params[:order].to_s == "1"
-        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).order(current_sign_in_at: :desc).page(params[:page])
+        @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).order(current_sign_in_at: :desc).page(params[:page])
       else
-        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
+        @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
     end
   else
     if params[:order].to_s == "1"
-        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).order(current_sign_in_at: :desc).page(params[:page])
+        @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).order(current_sign_in_at: :desc).page(params[:page])
       else
-        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).order(created_at: :desc).page(params[:page])
+        @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).job(array_job).future(array_future).age(array_age).info(params[:info]).order(created_at: :desc).page(params[:page])
     end
   end
 end
@@ -178,15 +178,15 @@ end
 if params[:user_type].to_s == "2" #メンバー募集を探す
   if current_user
       if params[:order].to_s == "1"
-        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).where.not(id: current_user.id).order(current_sign_in_at: :desc).page(params[:page])
+        @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).where.not(id: current_user.id).order(current_sign_in_at: :desc).page(params[:page])
       else
-        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
+        @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
     end
   else
     if params[:order].to_s == "1"
-        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).order(current_sign_in_at: :desc).page(params[:page])
+        @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).order(current_sign_in_at: :desc).page(params[:page])
       else
-        @users = User.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).order(created_at: :desc).page(params[:page])
+        @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).future(array_future).band_type(array_band).song_type(array_song).info(params[:info]).order(created_at: :desc).page(params[:page])
     end
   end
 end

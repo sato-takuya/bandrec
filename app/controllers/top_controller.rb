@@ -26,6 +26,10 @@ end
   def index
     if current_user
       #@users = User.with_attached_profile_picture.where.not(id: current_user.id).where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
+      if current_user.profile_picture == nil
+        redirect_to 'users/registrations#profile_edit'
+        flash ="プロフィールを登録してください"
+      else
       @array = User.with_attached_profile_picture.where.not(id: current_user.id).where.not(user_type: 3).order(created_at: "DESC")
 
       all_id=[]
@@ -53,6 +57,7 @@ end
       user_id_A.push(user_id_B)
       user_id_A.flatten!
       @users = User.with_attached_profile_picture.where(id: user_id_A).order_as_specified(id: user_id_A).page(params[:page]).per(12)
+    end
 
     else
       #@users = User.where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)

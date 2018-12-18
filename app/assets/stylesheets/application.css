@@ -782,6 +782,13 @@ table{
     margin: 10px 30px 10px 10px;
 }
 
+.profile-edit-box span{
+    border-bottom:3px solid rgb(255, 230, 0);
+    font-weight: bold;
+    color:rgb(255, 0, 0);
+    font-size:1.5rem;
+}
+
 /*
 .top .share{
     display: block;

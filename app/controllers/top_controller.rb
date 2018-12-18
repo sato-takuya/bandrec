@@ -55,7 +55,7 @@ end
       user_id_A.flatten!
       @users = User.with_attached_profile_picture.where(id: user_id_A).order_as_specified(id: user_id_A).page(params[:page]).per(12)
     else
-      redirect_to 'users/registrations#profile_edit'
+      redirect_to profile_edit_path
       flash ="プロフィールを登録してください"
     end
 

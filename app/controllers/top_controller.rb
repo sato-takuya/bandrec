@@ -118,6 +118,10 @@ def show
 end
 
   def searchcondition
+    if current_user.profile_picture.attached? || current_user.user_type != nil
+    else
+      redirect_to profile_edit_path
+    end
   end
 
   def searchval#検索バリデーション

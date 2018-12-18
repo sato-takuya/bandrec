@@ -12,6 +12,10 @@
     <td><%= f.radio_button "user_type",1%>加入希望 <%= f.radio_button "user_type",2%>メンバーを募集 <%= f.radio_button "user_type",3%>休憩(検索結果に表示されません)<br></td>
   </tr>
   <tr>
+    <td><%= f.label :image %><span class="asta">*必須</span></td>
+    <td><%= f.file_field :profile_picture %></td>
+    <tr>
+  <tr>
   <td>担当パート(メンバー募集の方は「募集パート」)</td>
 
     <% array = [] %>
@@ -82,11 +86,6 @@
     <tr>
     <td><%= f.label :info %></td>
     <td><%= f.text_area :info,cols:40, size: "60 x 16",:class => "prof-text-area" %><br></td>
-    <tr>
-
-    <tr>
-    <td><%= f.label :image %><span class="asta">*必須</span></td>
-    <td><%= f.file_field :profile_picture %></td>
     <tr>
 
     <tr>

@@ -56,6 +56,7 @@ end
       @users = User.with_attached_profile_picture.where(id: user_id_A).order_as_specified(id: user_id_A).page(params[:page]).per(12)
     else
       redirect_to profile_edit_path
+      flash[:notice] = "プロフィールを充実させましょう(必須項目:画像とステータス)"
     end
 
     else

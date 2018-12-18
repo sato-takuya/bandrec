@@ -46,12 +46,14 @@
         <h2 class="hidden">新着メッセージ</h2>
 <ul class="news-list">
     <li>
-    <% if current_user %>
+    <%#<% if current_user %>
+    <%#
     <% if current_user.profile_picture.attached? %>
-      <% else %>
-      <%= link_to "プロフィール画像を登録しましょう", mypage_path(current_user),:class => "noreply-message" %>
-    <% end %>
-    <% end %>
+      <%#<% else %>
+      <%#<%= link_to "プロフィール画像を登録しましょう", mypage_path(current_user),:class => "noreply-message" %>
+    <%#<% end %>
+
+    <%#<% end %>
     <% if current_user %>
             <% noreply_array = [] %>
             <% noreply(current_user,noreply_array) %>

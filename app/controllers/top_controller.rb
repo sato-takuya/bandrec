@@ -3,7 +3,7 @@ class TopController < ApplicationController
   before_action :searchval,only: [:search]
   #before_action :prereg ,only: [:show,:searchcondition]
 
-  before_action :authenticate,except:[:about]
+  #before_action :authenticate,except:[:about]
 
 def authenticate
   redirect_to new_user_registration_url unless user_signed_in?
@@ -118,9 +118,13 @@ def show
 end
 
   def searchcondition
-    if current_user.profile_picture.attached? && current_user.user_type != nil
+    if current_user
+      if current_user.profile_picture.attached? && current_user.user_type != nil
+      else
+        redirect_to profile_edit_path
+      end
     else
-      redirect_to profile_edit_path
+      redirect_to :new_user_registration
     end
   end
 

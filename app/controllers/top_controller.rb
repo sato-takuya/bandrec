@@ -26,7 +26,7 @@ end
   def index
     if current_user
       #@users = User.with_attached_profile_picture.where.not(id: current_user.id).where.not(user_type: 3).order(created_at: "DESC").page(params[:page]).per(12)
-      if current_user.profile_picture.attached? && current_user.user_type != nil
+      if current_user.user_type != nil
       @array = User.with_attached_profile_picture.where.not(id: current_user.id).where.not(user_type: 3).order(created_at: "DESC")
 
       all_id=[]
@@ -119,7 +119,7 @@ end
 
   def searchcondition
     if current_user
-      if current_user.profile_picture.attached? && current_user.user_type != nil
+      if current_user.user_type != nil
       else
         redirect_to profile_edit_path
       end

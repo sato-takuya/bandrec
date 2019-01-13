@@ -25,7 +25,6 @@
     <%= analytics_init if Rails.env.production? %>
 
     <meta name="google-site-verification" content="-2Wg1QCERNPfRmweV4lYvbLl8s8rDDdSZztQ4CI9QDg" />
-
   </head>
 
   <body>
@@ -35,25 +34,17 @@
     </header>
     <div class="wrapper clearfix">
       <main class="main">
-      <!--アバウト-->
-        <%#<h2 class="hidden">and’s jamとは</h2>
-        <%= link_to("/top/about") do %>
-            <%#<div class="about_br">
-                <div class="content">What Is and’s jam(あんずジャム)？</div>
-            </div>
-        <% end %>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-2724978810500910",
+          enable_page_level_ads: true
+        });
+      </script>
         <% if current_user %>
         <h2 class="hidden">新着メッセージ</h2>
 <ul class="news-list">
     <li>
-    <%#<% if current_user %>
-    <%#
-    <% if current_user.profile_picture.attached? %>
-      <%#<% else %>
-      <%#<%= link_to "プロフィール画像を登録しましょう", mypage_path(current_user),:class => "noreply-message" %>
-    <%#<% end %>
-
-    <%#<% end %>
     <% if current_user %>
             <% noreply_array = [] %>
             <% noreply(current_user,noreply_array) %>

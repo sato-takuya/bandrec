@@ -13,7 +13,10 @@
  *= require_tree .
  *= require_self
  */
-@charset "UTF-8";
+@import "bootstrap";
+/*@charset "UTF-8";*/
+
+
 
 html{
     font-size:62.5%;
@@ -22,19 +25,16 @@ html{
     width:100%;
 }
 
-
 body{
     background-color: rgb(255, 255, 255);
-    /*background:url(1223976.jpg);*/
-    color:#333;
     font-size: 1.3rem;
-    font-family: "Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+
 }
 *,*::before,*::after{
     box-sizing: border-box;
 }
 a:link,a:visited,a:hover,a:active{
-    color:#666;
+    color:rgb(75, 75, 75);
     text-decoration: none;
 }
 
@@ -60,22 +60,21 @@ a:link,a:visited,a:hover,a:active{
     margin-bottom:10px;
 }
 .wrapper{
-    width:75%;
     margin:15px auto 40px;
 }
 .main{
-    display:block;
     float:right;
+    display:block;
     width:840px;
     margin-top:5%;
 }
 .sidemenu{
+    margin-top:70px;
     float:left;
     width:18%;
     height:680px;
     background-color:#eeeeee;
     border:0.5px solid #d3d3d3;
-    margin-top:5%;
 }
 
 .footer{
@@ -115,6 +114,7 @@ header{
 }
 .global-nav .nav-item{
     display:inline-block;
+    margin-top:20px;
     width: 80px;
     height: 5px;
     line-height: 5px;
@@ -326,18 +326,6 @@ header{
 .sidemenu .message a:hover{
     opacity: 0.8s;
 }
-/*
-.sidemenu .message .message-count{
-    display: inline-block;
-    width:20px;
-    height:20px;
-    margin:0 15px;
-    color:white;
-    background-color: #ff7abc;
-    line-height: 20px;
-    border-radius: 10px;
-}
-*/
 
 .sidemenu .side-function{
   font-size:1.1rem;
@@ -399,11 +387,12 @@ header{
     width:600px;
     height:auto;
     min-height:660px;
-    background-color:#e0e0e0;
+    background-color:#ebebeb;
     margin:0 auto;
     box-shadow: 0px 2px 4px 3px rgba(99, 98, 98, 0.15);
     padding-bottom: 15px;
 }
+
 .top-box .image-box{
     width:300px;
     height:315px;
@@ -442,7 +431,7 @@ header{
     float:right;
     margin-right:20px;
     background-color:#f7f7f7;
-    font-size:1.4rem;
+    font-size:1.3rem;
     padding:10px 10px 10px 10px;
     color:rgb(53, 53, 53);
 }
@@ -475,19 +464,14 @@ header{
     text-align: left;
 }
 
-.show-box .send-message{
+
+.send-message{
     display: block;
-    cursor: pointer;
-    height:60px;
-    width:350px;
-    line-height:60px;
     text-align:center;
     margin:0 auto;
     font-size: 2rem;
     margin-top:10px;
-    border-radius: 20px;
-    background-color:#f89934;
-    color:rgb(235, 232, 232);
+    width:300px;
     box-shadow: 0px 4px 4px 2px rgba(56, 56, 56, 0.15);
 }
 
@@ -672,19 +656,14 @@ table{
 
 .about .b{
     display: block;
-    cursor: pointer;
-    height:60px;
+    height:50px;
+    line-height:35px;
     width:350px;
-    line-height:60px;
     text-align:center;
     margin:0 auto;
-    font-size: 2rem;
-    margin-top:10px;
-    background-color:#f89934;
-    color:rgb(235, 232, 232);
+    font-size:1.5rem;
     font-weight:bold;
-    border:1px solid rgb(187, 187, 187);
-    box-shadow: 0px 4px 4px 2px rgba(56, 56, 56, 0.15);
+    color:rgb(54, 81, 204);
 }
 .about-image{
     height:auto;

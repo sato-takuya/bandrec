@@ -118,18 +118,20 @@
 <div class="info-box">
   <%= simple_format(@user.info) %>
 </div>
+<div class="send-text">
 <% if current_user %>
   <% if @isRoom == true %>
-    <p><a href="/rooms/<%= @roomId %>" class="send-message">チャット画面へ</a>
+    <p><a href="/rooms/<%= @roomId %>" class="btn btn-warning btn-lg send-message">チャット画面へ</a></p>
   <% else %>
     <%= form_for @room do |f| %>
       <%= fields_for @entry do |e| %>
         <%= e.hidden_field :user_id, :value=> @user.id %>
       <% end %>
-      <%= f.submit 'メッセージを送る', :class=>"send-message" %>
+      <p><%= f.submit 'メッセージを送る', :class=>"btn btn-warning btn-lg send-message" %></p>
     <% end %>
     <% end %>
     <% else %>
-    <%= link_to 'メッセージを送る', "/users/sign_up", :class=>"send-message"  %>
+    <p><%= link_to 'メッセージを送る', "/users/sign_up", :class=>"btn btn-warning btn-lg send-message"  %></p>
     <% end %>
+    </div>
 </div>

@@ -50,6 +50,6 @@
 
 楽曲のタイプ：<%= check_box_tag 'song_type[id][]',1,:checked => true  %>オリジナルが多い  <%= check_box_tag 'song_type[id][]',2 ,:checked => true %>コピーが多い<br>
 </div>
-<%= submit_tag "検索" %>
+<%= submit_tag "検索" ,:class=>"btn btn-primary btn-lg" %>
 <% end %>
 </div>

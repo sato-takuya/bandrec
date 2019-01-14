@@ -1,4 +1,6 @@
+<h2 class="hidden">ユーザー詳細</h2>
 <div class="show-box">
+<h3 class="hidden">ユーザーデータ</h3>
   <div class="top-box clearfix">
     <div class="image-box">
       <% if @user.profile_picture.attached? %>
@@ -111,11 +113,13 @@
       <% end %>
       <% end %>
     </div>
+    <h3 class="hidden">ユーザーが投稿した音源</h3>
     <div class="sound_source-box">
       音源<br><%= text_url_to_link(h(@user.sound_source)).html_safe %>
     </div>
   </div>
 <div class="info-box">
+<h3 class="hidden">自己紹介</h3>
   <%= simple_format(@user.info) %>
 </div>
 <div class="send-text">

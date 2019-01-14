@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <meta content="and’s jam(あんずジャム)は掲示板と全く異なる「新感覚」バンドメンバー募集サイトです。メールアドレスで簡単に登録できます！" name="description">
+    <meta content="and’s jam(あんずジャム)は掲示板と全く異なる、新感覚のバンドメンバー募集サイトです。メールアドレスで簡単に登録できます！" name="description">
 
     <meta name="twitter:card" content='summary_large_image' />
     <meta property="twitter:url" content='https://www.anzujam.net' />
@@ -44,25 +44,25 @@
       <main class="main">
         <% if current_user %>
         <h2 class="hidden">新着メッセージ</h2>
-<ul class="news-list">
-    <li>
-    <% if current_user %>
-            <% noreply_array = [] %>
-            <% noreply(current_user,noreply_array) %>
-            <% if noreply_array.count != 0 %>
-              <%= link_to "未返信メッセージ #{noreply_array.count} 件", "/rooms",:class => "noreply-message" %><br>
-            <% end %>
-    <% end %>
-    </li>
-</ul>
+          <ul class="news-list">
+              <li>
+              <% if current_user %>
+                <% noreply_array = [] %>
+                <% noreply(current_user,noreply_array) %>
+                <% if noreply_array.count != 0 %>
+                  <%= link_to "未返信メッセージ #{noreply_array.count} 件", "/rooms",:class => "noreply-message" %><br>
+                <% end %>
+              <% end %>
+              </li>
+          </ul>
 <% end%>
-            <div class="flash">
-        <%= flash[:notice]  %>
-      </div>
-        <!--新着ニュース-->
-<div class="top">
+<div class="flash">
+  <%= flash[:notice]  %>
+</div>
+<!--新着ニュース-->
+<div>
           <%= yield %>
-      </main>
+</main>
       <div class="sidemenu">
         <%= render "shared/sidemenu" %>
       </div>

@@ -1,4 +1,4 @@
-<h2 class="hidden">profile</h2>
+<h2 class="hidden">サイドメニュー</h2>
 <% if current_user %>
   <div class="profile">
   <% if current_user.profile_picture.attached? %>
@@ -18,9 +18,11 @@
 </div>
 <% else %>
 <!--サービスの説明-->
+<!--
 <div class="right-top-about">
 <%= link_to 'and’s jamとは', "/top/about",:class => "bandrectoha" %>
 </div>
+-->
 <% end %>
 <h2 class="hidden">message</h2>
   <div class="message">
@@ -36,9 +38,11 @@
 <h2 class="hidden">SidemenuFunction</h2>
 <div class="side-function">
   <ul>
-    <%= link_to 'ユーザーを検索する', "/top/searchcondition" %>
+    <li><%= link_to 'ユーザーを検索する', "/top/searchcondition" %></li>
+    <!--
     <li><a class="tofirst">はじめての方へ</a></li>
     <li><a class=help>ヘルプ</a></li>
+    -->
     <li> <%= link_to 'お問い合わせ', "/top/inquiry" %> </li>
   </ul>
 </div>

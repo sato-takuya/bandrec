@@ -1,14 +1,15 @@
 <!--トップの検索-->
-<h2 class="hidden">検索</h2>
+<h2 class="hidden">検索条件を変更する</h2>
 <%= link_to '検索条件変更',"/top/searchcondition",class:"top-search" %>
 <!--コンテンツ一覧-->
-<h2 class="hidden">ユーザー一覧</h2>
+<h2 class="hidden">ユーザー一覧を表示</h2>
 
 <div class="contents-box clearfix">
 <% if @users %>
   <% @users.each do |user| %>
   <%= link_to("top/#{user.id}") do %>
-  <h3 class="content-box">
+  <div class="content-box">
+  <h3 class="hidden">ユーザープロフィール</h3>
     <div class="name"><%= user.name %></div>
       <% if user.profile_picture.attached? %>
           <%= image_tag  user.profile_picture,class:"user_image" %>
@@ -18,7 +19,7 @@
       <div class="text-box">
           <div class="text not-just"><%= user.info %></div>
       </div>
-  </h3>
+  </div>
   <% end %>
   <% end %>
   <% else %>

@@ -1,5 +1,5 @@
 <div class="profile-edit-box">
-<span class="hissu">プロフィールを充実させましょう</span><br>
+<span class="hissu">プロフィールを充実させるとアプローチが来やすくなります！</span><br>
 <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
 <table border = "1">
   <tr>
@@ -121,7 +121,7 @@
     </tr>
   <tr>
   <div class="actions">
-    <td colspan="2"><%= f.submit "Update" %></td>
+    <td colspan="2"><%= f.submit "プロフィールを更新",:class=>"btn btn-primary btn-lg my-3" %></td>
   </div>
   </tr>
 </table>

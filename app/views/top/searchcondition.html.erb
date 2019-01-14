@@ -5,6 +5,8 @@
 
 ステータス：<%= radio_button_tag :user_type,1 %>加入希望 <%= radio_button_tag :user_type,2 %>メンバーを募集<br>
 
+<p>※ステータスを選択してください</p>
+
 <span class="show-add">担当</span><span class="show-band">募集</span>パート：
 <%= check_box_tag 'candidate[id][]', 1,:checked => true %>ボーカル
 <%= check_box_tag 'candidate[id][]', 2,:checked => true %>ギター
@@ -50,6 +52,7 @@
 
 楽曲のタイプ：<%= check_box_tag 'song_type[id][]',1,:checked => true  %>オリジナルが多い  <%= check_box_tag 'song_type[id][]',2 ,:checked => true %>コピーが多い<br>
 </div>
+<br>
 <%= submit_tag "検索" ,:class=>"btn btn-primary btn-lg" %>
 <% end %>
 </div>

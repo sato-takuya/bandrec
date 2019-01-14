@@ -1,4 +1,6 @@
+<h2 class="hidden">マイページ</h2>
 <div class="mypage-box">
+<h3 class="hidden">登録データ</h3>
   <div class="top-box clearfix">
     <div class="image-box">
       <% if @user.profile_picture.attached? %>
@@ -94,10 +96,12 @@
       <% end %>
       </div>
       <div class="sound_source-box">
+      <h3 class="hidden">自分が投稿した音源</h3>
         音源<br><%= text_url_to_link(h(@user.sound_source)).html_safe %>
       </div>
     </div>
   <div class="info-box">
+  <h3 class="hidden">自己紹介</h3>
     <%= simple_format(@user.info) %>
   </div>
 </div>

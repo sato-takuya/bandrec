@@ -1,13 +1,11 @@
+
 <div class="sign-up-box">
 <h2>バンドメンバー募集サイト and's jam(あんずジャム) アカウント登録画面</h2>
-
-<h3><span><%= link_to 'and’s jam(あんずジャム)とは？詳しく解説', "/top/about",:class => "bandrectoha" %></span></h3>
-
-
-<%= image_tag 'topsss.png',class:"top-image" %>
 <br>
 
-<br>
+<!--
+<p><span><%= link_to 'サイト説明', "/top/about",:class => "bandrectoha" %></span></p>
+-->
 <div class="new-border">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -35,17 +33,16 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <p>※確認メールが届くまで<span>1~2分程度</span>かかる場合があります。<br></p>
-  <span>迷惑メールフォルダに入っている</span>場合もございます。</p>
-  <p>ご注意ください。</p>
-
+<br>
   <div class="actions">
     <%= f.submit "アカウント登録",:class=>"btn btn-primary btn-lg" %>
   </div>
-<% end %>
 <br>
+
+  <p>※確認メールが届くまで<span>1~2分程度</span>かかる場合があります。<br></p>
+  <span>迷惑メールフォルダに入っている</span>場合もございます。ご注意ください。</p>
+
+<% end %>
 <%= render "devise/shared/links" %>
-※画像はイメージです
 </div>
-<br><a href="http://twitter.com/share?url=https://www.anzujam.net/" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>ツイッターでシェア<br>
-</div>
+<br>

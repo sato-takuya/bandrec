@@ -10,7 +10,6 @@ class RoomsController < ApplicationController
   def index #メッセージ一覧を表示する
     @currentEntries = current_user.entries #ログイン中のユーザーが入ることのできる部屋(room)の鍵情報たち
     myRoomIds = []
-
     @currentEntries.each do |entry|
     myRoomIds << entry.room.id #自分が入ることができる部屋(room)のid
   end

@@ -1,7 +1,7 @@
 module ApplicationHelper
   require "uri"
 
-def text_url_to_link text
+def text_url_to_link text #テキストをリンクに(音源URL用)
 
   URI.extract(text, ['http','https'] ).uniq.each do |url|
     sub_text = ""

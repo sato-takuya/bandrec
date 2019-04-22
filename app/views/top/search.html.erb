@@ -27,26 +27,26 @@
 <div class="contents-box clearfix">
 <% if @users  %>
   <% @users.each do |user| %>
-<%= link_to top_path(user) do %>
-  <div class="content-box">
-  <h3 class="hidden">ユーザープロフィール</h3>
-    <div class="name"><%= user.name %></div>
-      <% if user.profile_picture.attached? %>
-          <%= image_tag  user.profile_picture,class:"user_image" %>
-          <% else %>
-          <%= image_tag  "account.png",class:"user_image" %>
-      <% end %>
-      <div class="text-box">
-          <div class="text not-just"><%= user.info %></div>
-      </div>
-  </div>
-  <% end %>
-  <% end %>
-  <br>
-  <div class="pagenation"><%= paginate(@users) %></div>
-  <br>
+    <%= link_to top_path(user) do %>
+    <div class="content-box">
+    <h3 class="hidden">ユーザープロフィール</h3>
+      <div class="name"><%= user.name %></div>
+        <% if user.profile_picture.attached? %>
+            <%= image_tag  user.profile_picture,class:"user_image" %>
+            <% else %>
+            <%= image_tag  "account.png",class:"user_image" %>
+        <% end %>
+        <div class="text-box">
+            <div class="text not-just"><%= user.info %></div>
+        </div>
+    </div>
+    <% end %>
+    <% end %>
+    <br>
+    <div class="pagenation"><%= paginate(@users) %></div>
+    <br>
   <% else %>
-  <p>ユーザーがいません</p>
+    <p>ユーザーがいません</p>
   <% end %>
   <a href="http://twitter.com/share?url=https://www.anzujam.net/" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><br>
 </div>

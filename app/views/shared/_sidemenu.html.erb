@@ -16,14 +16,8 @@
     <% end %></span></p>
     <%= link_to 'マイページ', mypage_path(current_user),:class => "edit" %>
 </div>
-<% else %>
-<!--サービスの説明-->
-<!--
-<div class="right-top-about">
-<%= link_to 'and’s jamとは', "/top/about",:class => "bandrectoha" %>
-</div>
--->
 <% end %>
+
 <h2 class="hidden">message</h2>
   <div class="message">
   <%#<a class="text">メッセージ<span class="message-count">1</span></a>%>
@@ -39,10 +33,6 @@
 <div class="side-function">
   <ul>
     <li><%= link_to 'ユーザーを検索する', "/top/searchcondition" %></li>
-    <!--
-    <li><a class="tofirst">はじめての方へ</a></li>
-    <li><a class=help>ヘルプ</a></li>
-    -->
     <li> <%= link_to 'お問い合わせ', "/top/inquiry" %> </li>
   </ul>
 </div>

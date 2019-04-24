@@ -158,6 +158,20 @@ header{
     text-shadow: 0.5px 0.5px 0 rgb(19, 19, 19),-0.5px 0.5px 0 rgb(19, 19, 19),0.5px -0.5px 0 rgb(19, 19, 19),-0.5px -0.5px 0 rgb(19, 19, 19);
 }
 
+/*about-site*/
+.about-site{
+    display:block;
+    height: 120px;
+    margin-bottom: 20px;
+    list-style: none;
+    color:rgb(230, 230, 230);
+    font-size: 2rem;
+    background-image:url(bass.jpg);
+    text-align: center;
+    overflow-y: auto;
+    line-height: 120px;
+}
+
 /*新着情報*/
 .news-list{
     height: 70px;

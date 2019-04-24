@@ -1,4 +1,16 @@
 <!--トップの検索-->
+<% if current_user %>
+<% else %>
+<h2 class="hidden">サイト説明</h2>
+<div class="about-sit">
+<%= link_to "/top/about",class: "about-site"  do %>
+and's jam とは？
+<% end %>
+<%#<%= link_to 'このサイトについて', "/top/about",:class => "about-site" %>
+</div>
+<% end %>
+
+
 <h2 class="hidden">検索条件を変更する</h2>
 <%= link_to '検索条件変更',"/top/searchcondition",class:"top-search" %>
 <!--コンテンツ一覧-->

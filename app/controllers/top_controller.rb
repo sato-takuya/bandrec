@@ -30,7 +30,7 @@ class TopController < ApplicationController
         @array = User.with_attached_profile_picture.where.not(id: current_user.id).where.not(user_type: 3).order(created_at: "DESC")
 
         image_first(@array,all_id,user_id_A,user_id_B) #画像優先モジュール
-        @users = User.with_attached_profile_picture.where(id: user_id_A).order_as_specified(id: user_id_A).page(params[:page]).per(6)
+        @users = User.with_attached_profile_picture.where(id: user_id_A).order_as_specified(id: user_id_A).page(params[:page]).per(12)
         #メモ：.order_as_specified は、whereで検索した際に、指定の順番通りにデータを取得する
       else #ユーザータイプがnilの場合は、プロフィール編集画面へ(ユーザータイプを登録してくださいね！)
         redirect_to profile_edit_path
@@ -39,7 +39,7 @@ class TopController < ApplicationController
       #非表示設定の人以外全てを登録が新しい順に取得して、配列 @array へ
       @array = User.with_attached_profile_picture.where.not(user_type: 3).order(created_at: "DESC")
       image_first(@array,all_id,user_id_A,user_id_B) #画像優先モジュール
-      @users = User.with_attached_profile_picture.where(id: user_id_A).order_as_specified(id: user_id_A).page(params[:page]).per(6)
+      @users = User.with_attached_profile_picture.where(id: user_id_A).order_as_specified(id: user_id_A).page(params[:page]).per(12)
     end
   end
 

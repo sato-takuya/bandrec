@@ -613,15 +613,6 @@ textarea {
   100% { transform:translateY(0) }
 }
 
-.pagenation{
-    width:50%;
-    margin:0 auto;
-}
-
-.pagenation>li{
-    display: block;
-    margin:0 auto;
-}
 
 .pagination>li>a {
   border: none;     /*枠線をなくす*/
@@ -644,7 +635,7 @@ textarea {
 
 .site-share{
     text-align: center;
-    width:50%;
+    width:100%;
     margin:0 auto;
 }
 .site-share a{

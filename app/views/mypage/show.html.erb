@@ -74,6 +74,7 @@
   <h3 class="hidden">自己紹介</h3>
     <%= simple_format(@user.info) %>
   </div>
-  <div class='prof-edit'><%= link_to 'プロフィール編集', profile_edit_path %></div>
-  <div class="prof-edit"><%= link_to 'ログアウト', "/users/sign_out", method: :delete %></div>
+  <br>
+  <div class='prof-edit fas fa-edit'><%= link_to 'プロフィール編集', profile_edit_path %></div><br><br>
+  <div class="prof-logout fas fa-sign-out-alt"><%= link_to 'ログアウト', "/users/sign_out", method: :delete %></div>
 </div>

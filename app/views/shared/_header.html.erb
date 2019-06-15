@@ -1,6 +1,8 @@
-<div class="header-list">
-<div class="h-menu">
+<div class="header-list container">
+<div class="h-menu row">
 
+<div class='col-md-3'></div>
+<div class='col-md-6'>
 <%= link_to '', "/",class:"fa fa-home menu-icon" %>
 <%= link_to '', "/top/searchcondition",class: "fa fa-search menu-icon" %>
 <% if current_user %>
@@ -16,4 +18,6 @@
         <%= link_to '', "/users/sign_up",class:"fa fa-user menu-icon" %>
     <% end %>
     </div>
+    </div>
+<div class='col-md-3'></div>
 </div>

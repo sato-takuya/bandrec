@@ -54,13 +54,6 @@
         女性
       <% end %>
       <br>
-      方向性：
-      <% if @user.future == 1 %>
-      プロ志向
-      <% else %>
-      趣味
-      <% end %>
-      <br>
   <% else %>
       名前：<%= @user.name %><br>
       メンバー募集
@@ -81,24 +74,6 @@
         <% end %>
       <br>
       活動エリア：<%= @user.area %><br>
-      方向性：
-      <% if @user.future == 1 %>
-      プロ志向
-      <% else %>
-      趣味
-      <% end %><br>
-      バンド形態：
-      <% if @user.band_type == 1 %>
-      新規結成
-      <% else %>
-      活動(休止)中
-      <% end %><br>
-      楽曲のタイプ：
-      <% if @user.song_type == 1 %>
-      オリジナルが多い
-      <% else %>
-      コピーが多い
-      <% end %>
       <% end %>
     </div>
     <h3 class="hidden">ユーザーが投稿した音源</h3>

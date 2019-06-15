@@ -1,10 +1,8 @@
 <div class="room-index">
 <h2>メッセージ一覧</h2>
-<% @anotherEntries.reverse.each do |e| %>
-
 <%count = 0%>
+<% @anotherEntries.reverse.each do |e| %>
 <div class= "room-content">
-
 <% if e.room.messages[count].content == nil %>
 <%count += 1%>
 <% else %>

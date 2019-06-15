@@ -1,5 +1,8 @@
-<div class="chat-box">
+<div class="chat-box container">
 <h1 class="hidden">メッセージ</h1>
+<div class='row'>
+<div class='col-md-3'></div>
+<div class='col-md-6'>
 <% @entries.each do |e| %>
 <% if e.user_id == current_user.id %>
 <% else %>
@@ -51,6 +54,9 @@
     <br>
     <%= f.submit "送信",:class=>"btn btn-primary btn-lg" %>
   <% end %>
+  </div>
+  <div class='col-md-3'></div>
+  </div>
 </div>
 
 

@@ -1,6 +1,5 @@
 class NotificationMailer < ApplicationMailer
   # デフォルトでの送信元のアドレス
-  default from: bandrec.info@gmail.com
 
   def hello(name)
     @name = name

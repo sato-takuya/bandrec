@@ -1,7 +1,7 @@
 ja:
   devise:
     confirmations:
-      confirmed: 'アカウントを登録しました。マイページからプロフィールを作成しましょう！※デフォルトの設定は休憩モード(相手に表示されません)となっています'
+      confirmed: 'アカウントを登録しました。マイページからプロフィールを作成しましょう！'
       send_instructions: 'アカウントの有効化について数分以内にメールでご連絡します。'
       send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、本人確認用のメールが数分以内に送信されます。"
     failure:
@@ -71,7 +71,7 @@ ja:
         future: 方向性
         user_type: ステータス
         info: 自己紹介(3,000字以内)
-        sound_source: 音源
+        sound_source: 音源(YoutubeなどのURL)
         part: 楽器
         image: プロフィール画像
         email: メールアドレス
@@ -90,5 +90,5 @@ ja:
         future: 方向性
         user_type: ステータス
         info: 自己紹介
-        sound_source: 音源
+        sound_source: 音源(YoutubeなどのURL)
         part: 楽器

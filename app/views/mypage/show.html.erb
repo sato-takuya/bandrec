@@ -44,20 +44,6 @@
       <% else %>
       女
       <% end %><br>
-      職業：<% if @user.job == 1 %>
-      会社員
-      <% elsif @user.job == 2 %>
-      フリーター
-      <% elsif @user.job == 3 %>
-      学生
-      <% elsif @user.job == 4 %>
-      その他
-      <% end %><br>
-      方向性：<% if @user.future == 1 %>
-      プロ志向
-      <% else %>
-      趣味
-      <% end %><br>
       <% elsif @user.user_type == 2 %>
         メンバー募集<br>
         募集パート：<% @user.instruments.each do |i| %>
@@ -75,21 +61,6 @@
             <% end %>
           <% end %><br>
           活動エリア：<%= @user.area %><br>
-          方向性：<% if @user.future == 1 %>
-      プロ志向
-      <% else %>
-      趣味
-      <% end %><br>
-      バンド形態：<% if @user.band_type ==1 %>
-      新規結成<br>
-      <% else %>
-      活動(休止)中<br>
-      <% end %>
-      楽曲のタイプ：<% if @user.song_type == 1 %>
-      オリジナルが多い<br>
-      <% else %>
-      コピーが多い<br>
-      <% end %>
       <% else %>
         休憩モード(検索結果に表示されません)<br>
       <% end %>

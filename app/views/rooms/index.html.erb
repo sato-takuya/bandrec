@@ -2,8 +2,9 @@
 <h2>メッセージ一覧</h2>
 <%count = 0%>
 <% @anotherEntries.reverse.each do |e| %>
+
 <div class= "room-content">
-<% if e.room.messages[count].content == nil %>
+<% if e.room.messages[count]== nil %>
 <%count += 1%>
 <% else %>
 

@@ -1,25 +1,35 @@
 <div class="room-index">
 <h2>メッセージ一覧</h2>
 <% @anotherEntries.reverse.each do |e| %>
+
+<%count = 0%>
 <div class= "room-content">
+
+<% if e.room.messages[count].content == nil %>
+<%count += 1%>
+<% else %>
+
   <%= link_to room_path(e.room.id) do %>
-  <% if e.user.profile_picture.attached? %>
-  <%= image_tag e.user.profile_picture,:class => "image" %>
-  <% else %>
-        <%= image_tag  "account.png",class:"image" %>
-  <% end %>
+        <% if e.user.profile_picture.attached? %>
+        <%= image_tag e.user.profile_picture,:class => "image" %>
+        <% else %>
+              <%= image_tag  "account.png",class:"image" %>
+        <% end %>
     <%= e.user.name %>
-            <% e.room.messages.each_with_index do |em,index|  %>
-              <% if index == e.room.messages.size - 1 %>
-                <% if em.user_id != current_user.id  %>
-                <span class="noreply">未返信</span>
-                <% end %>
+              <% e.room.messages.each_with_index do |em,index|  %>
+                <% if index == e.room.messages.size - 1 %>
+                  <% if em.user_id != current_user.id  %>
+                  <span class="noreply">未返信</span>
+                  <% end %>
+              <% end %>
             <% end %>
-    <% end %>
-    <% else %>
-            <span><br></span>
   <% end %>
-  </div>
+<% end %>
+</div>
+
+
+
+<%count += 1%>
 <% end %>
 </div>
 

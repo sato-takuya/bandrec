@@ -11,9 +11,6 @@ class User < ApplicationRecord
 
   extend OrderAsSpecified
 
-
-  #プロフィール編集のバリデーション
-  #validates :name, presence: true
   validates :info, length: { maximum: 3000 }
 
   scope :user_type,->(pub){where(user_type: pub).where.not(user_type: 3)}#ユーザータイプは何か

@@ -2,16 +2,18 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
     :address => "smtp.gmail.com",
     :port => 587,
     :domain => 'smtp.gmail.com',
-    :user_name => "anzujam.info@gmail.com", #ご自身のgmailアドレス
+    :user_name => "stakuya6@gmail.com", #ご自身のgmailアドレス
     :password => "takuya4645", #ご自身のgmailアドレスのパスワード
-    :authentication => 'login'
+    :authentication => 'plain'
+    :enable_starttls_auto => true
   }
+
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

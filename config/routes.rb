@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users,module: :users
   root 'top#index'#トップページ
+  devise_for :users,module: :users
   devise_scope :user do
     #プロフィール編集画面へ
     get 'profile_edit', to: 'users/registrations#profile_edit', as: 'profile_edit'

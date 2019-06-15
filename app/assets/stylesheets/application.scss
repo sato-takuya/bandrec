@@ -234,22 +234,11 @@ header a{
 
 
 /*フッター*/
-
 .horizonal-list{
-    width:100%;
-    margin:0 auto;
-    font-size:0;
+    float:right;
+    padding-right:35px;
 }
-.horizonal-list .horizonal-item{
-    display: inline-block;
-    padding:0 15px;
-    letter-spacing: 1px;
-}
-.horizonal-list .horizonal-item a{
-    font-size: 1.2rem;
-    line-height: 15px;
-    color:rgb(37, 37, 37);
-}
+
 .copyright{
     margin-top:10px;
     text-align: center;
@@ -651,4 +640,13 @@ textarea {
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
   border-radius: 15px;    /*角を丸くする*/
+}
+
+.site-share{
+    text-align: center;
+    width:50%;
+    margin:0 auto;
+}
+.site-share a{
+    width:30%;
 }

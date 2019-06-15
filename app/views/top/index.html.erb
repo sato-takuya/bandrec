@@ -1,39 +1,41 @@
+<div class='index-page'>
 <!--トップの検索-->
 <% if current_user %>
 <% else %>
 <h2 class="hidden">サイト説明</h2>
-<div class="about-sit">
-<%= link_to "/top/about",class: "about-site"  do %>
-and's jam とは？
+<%= link_to "/top/about" do %>
+<%= image_tag 'bandrec.png',width:400,class:'top-image' %>
 <% end %>
 <%#<%= link_to 'このサイトについて', "/top/about",:class => "about-site" %>
-</div>
 <% end %>
 
 
 <h2 class="hidden">検索条件を変更する</h2>
-<%= link_to '検索条件変更',"/top/searchcondition",class:"top-search" %>
+<%= link_to '検索',"/top/searchcondition",class:"top-search btn btn-info btn-lg" %>
 <!--コンテンツ一覧-->
 <h2 class="hidden">ユーザー一覧を表示</h2>
 
 <div class="contents-box clearfix">
 <% if @users %>
   <% @users.each do |user| %>
-  <%= link_to("top/#{user.id}") do %>
+  <%= link_to "top/#{user.id}" do %>
+
   <div class="content-box">
   <h3 class="hidden">ユーザープロフィール</h3>
-    <div class="name"><%= user.name %></div>
       <% if user.profile_picture.attached? %>
           <%= image_tag  user.profile_picture,class:"user_image" %>
           <% else %>
         <%= image_tag  "account.png",class:"user_image" %>
       <% end %>
       <div class="text-box">
-          <div class="text not-just"><%= user.info %></div>
+      <div class="name"><%= user.name %></div>
+      <div class="text not-just"><%= user.info %></div>
       </div>
   </div>
+
   <% end %>
   <% end %>
+
   <% else %>
   ユーザーがいません
   <% end %>
@@ -41,5 +43,4 @@ and's jam とは？
 <br>
 <div class="pagenation"><%= paginate(@users) %></div>
 <br>
-<a href="http://twitter.com/share?url=https://www.anzujam.net/" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><br>
 </div>

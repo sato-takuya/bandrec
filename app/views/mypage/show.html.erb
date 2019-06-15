@@ -9,7 +9,6 @@
       <%= image_tag  "account.png",class:"user_image" %>
       <% end %>
     </div>
-    <%= link_to 'プロフィール編集', profile_edit_path,:class  => "prof-edit" %>
       <div class="data-box">
       名前：<%= @user.name %><br>
       <% if @user.user_type == 1 %>
@@ -104,4 +103,6 @@
   <h3 class="hidden">自己紹介</h3>
     <%= simple_format(@user.info) %>
   </div>
+  <div class='prof-edit'><%= link_to 'プロフィール編集', profile_edit_path %></div>
+  <div class="prof-edit"><%= link_to 'ログアウト', "/users/sign_out", method: :delete %></div>
 </div>

@@ -10,7 +10,6 @@
 
       <% end %>
     </div>
-    <div class="last-login"></div>
     <div class="data-box">
     <% if @user.user_type == 1 %>
       名前：<%= @user.name %><br>
@@ -54,17 +53,6 @@
       <% else %>
         女性
       <% end %>
-      <br>
-      職業：
-      <% if @user.job == 1 %>
-          会社員
-      <% elsif 2 %>
-           フリーター
-      <% elsif 3 %>
-          学生
-      <% else %>
-          その他
-        <% end %>
       <br>
       方向性：
       <% if @user.future == 1 %>
@@ -135,7 +123,7 @@
     <% end %>
     <% end %>
     <% else %>
-    <p><%= link_to 'メッセージを送る', "/users/sign_up", :class=>"btn btn-warning btn-lg send-message"  %></p>
+    <p><%= link_to '話しかけてみる', "/users/sign_up", :class=>"btn btn-warning btn-lg send-message"  %></p>
     <% end %>
     </div>
 </div>

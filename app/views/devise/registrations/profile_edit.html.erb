@@ -1,129 +1,119 @@
 <div class="profile-edit-box">
-<span class="hissu">プロフィールを充実させるとアプローチが来やすくなります！</span><br>
 <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
-<table border = "1">
-  <tr>
-  <div class="field">
-      <td><%= f.label :name %><span class="asta">*必須</span></td>
-      <td><%= f.text_field :name %></td>
-  </tr>
-  <tr>
-      <td><%= f.label :user_type %><span class="asta">*必須</span></td>
-    <td><%= f.radio_button "user_type",1%>加入希望 <%= f.radio_button "user_type",2%>メンバーを募集 <%= f.radio_button "user_type",3%>休憩(検索結果に表示されません)<br></td>
-  </tr>
-  <tr>
-    <td><%= f.label :image %></td>
-    <td><%= f.file_field :profile_picture %></td>
-    <tr>
-  <tr>
-  <td>担当パート(メンバー募集の方は「募集パート」)</td>
 
-  <% array = [] %>
-  <td>
-  <% if current_user.instruments %>
-    <% current_user.instruments.each do |i| %>
-      <% array << i.part.to_s %>
-    <% end %>
+<div class="field">
+  <%= f.label :name %><span class="asta">(必須)</span>
+  <%= f.text_field :name,class: "form-control", placeholder: "名前" %>
+
+<br>
+<%= f.label :user_type, class: 'form-label' %><br>
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-info active">
+    <%= f.radio_button :user_type, 1, {checked: true} %>加入希望
+  </label>
+  <label class="btn btn-info">
+    <%= f.radio_button :user_type, 2, {} %> メンバーを募集
+  </label>
+  <label class="btn btn-info">
+    <%= f.radio_button :user_type, 3, {} %>休憩(検索結果に表示されません)
+  </label>
+</div>
+
+
+<br>
+<br>
+  <%= f.label :image %>
+  <br>
+  <%= f.file_field :profile_picture %>
+
+<br>
+<br>
+担当パート(メンバー募集の方は「募集パート」)<br>
+
+
+<% array = [] %>
+
+<% if current_user.instruments %>
+  <% current_user.instruments.each do |i| %>
+    <% array << i.part.to_s %>
   <% end %>
+<% end %>
 
-  <% if array.include?("1") %>
-    <%= check_box "gakki", "1",:checked => true %>ボーカル
-  <% else %>
-    <%= check_box "gakki", "1"%>ボーカル
-  <% end %>
+<% if array.include?("1") %>
+  <%= check_box "gakki", "1",:checked => true %>ボーカル
+<% else %>
+  <%= check_box "gakki", "1"%>ボーカル
+<% end %>
 
-  <% if array.include?("2") %>
-    <%= check_box "gakki", "2",:checked => true %>ギター
-  <% else %>
-    <%= check_box "gakki", "2"%>ギター
-  <% end %>
+<% if array.include?("2") %>
+  <%= check_box "gakki", "2",:checked => true %>ギター
+<% else %>
+  <%= check_box "gakki", "2"%>ギター
+<% end %>
 
-  <% if array.include?("3") %>
-    <%= check_box "gakki", "3",:checked => true %>ベース
-  <% else %>
-    <%= check_box "gakki", "3"%>ベース
-  <% end %>
+<% if array.include?("3") %>
+  <%= check_box "gakki", "3",:checked => true %>ベース
+<% else %>
+  <%= check_box "gakki", "3"%>ベース
+<% end %>
 
-  <% if array.include?("4") %>
-    <%= check_box "gakki", "4",:checked => true %>キーボード
-  <% else %>
-    <%= check_box "gakki", "4"%>キーボード
-  <% end %>
+<% if array.include?("4") %>
+  <%= check_box "gakki", "4",:checked => true %>キーボード
+<% else %>
+  <%= check_box "gakki", "4"%>キーボード
+<% end %>
 
-  <% if array.include?("5") %>
-    <%= check_box "gakki", "5",:checked => true %>ドラム<br>
-  <% else %>
-    <%= check_box "gakki", "5"%>ドラム<br>
-  <% end %>
-  </td>
-  </tr>
+<% if array.include?("5") %>
+  <%= check_box "gakki", "5",:checked => true %>ドラム<br>
+<% else %>
+  <%= check_box "gakki", "5"%>ドラム<br>
+<% end %>
 
-  <tr>
-  <td><%= f.label :birthday %></td>
-  <td><%= f.date_select :birthday,start_year: 1960,end_year: Time.current.year,use_month_numbers: true %></td>
-  </tr>
-  <% options = ['東京都','大阪府','愛知県','北海道', '青森県', '岩手県', '宮城県', '秋田県',
-  '山形県', '福島県', '茨城県', '栃木県', '群馬県',
-  '埼玉県', '千葉県', '神奈川県', '新潟県',
-  '富山県', '石川県', '福井県', '山梨県', '長野県',
-  '岐阜県', '静岡県','三重県', '滋賀県',
-  '京都府', '兵庫県', '奈良県', '和歌山県',
-  '鳥取県', '島根県', '岡山県', '広島県', '山口県',
-  '徳島県', '香川県', '愛媛県', '高知県', '福岡県',
-  '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県',
-  '鹿児島県', '沖縄県'] %>
+<br>
+<%= f.label :birthday %><br>
+<%= f.date_select :birthday,start_year: 1960,end_year: Time.current.year,use_month_numbers: true %>
 
-  <tr>
-  <td><%= f.label :area %></td>
-  <td><%= f.select :area,options %></td>
-  </tr>
+<% options = ['東京都','大阪府','愛知県','北海道', '青森県', '岩手県', '宮城県', '秋田県',
+'山形県', '福島県', '茨城県', '栃木県', '群馬県',
+'埼玉県', '千葉県', '神奈川県', '新潟県',
+'富山県', '石川県', '福井県', '山梨県', '長野県',
+'岐阜県', '静岡県','三重県', '滋賀県',
+'京都府', '兵庫県', '奈良県', '和歌山県',
+'鳥取県', '島根県', '岡山県', '広島県', '山口県',
+'徳島県', '香川県', '愛媛県', '高知県', '福岡県',
+'佐賀県', '長崎県', '熊本県', '大分県', '宮崎県',
+'鹿児島県', '沖縄県'] %>
 
-  <tr>
-  <td><%= f.label :future %></td>
-  <td><%= f.radio_button :future,1 %>プロを目指す <%= f.radio_button :future,2 %>趣味 </td>
-  </tr>
+<br>
+<br>
+<%= f.label :area %><br>
+<%= f.select :area,options %>
 
-  <tr>
-  <td><%= f.label :info %></td>
-  <td><%= f.text_area :info,cols:40, size: "60 x 16",:class => "prof-text-area" %><br></td>
-  <tr>
+<br>
+<br>
+<%= f.label :info %>
+<%= f.text_area :info,cols:40,class: 'form-control', placeholder: "Description" %><br>
 
-  <tr>
-  <td><%= f.label :sound_source %></td>
-  <td><%= f.text_field :sound_source,size:30 %></td>
-  <tr>
+<%= f.label :sound_source %>
+<%= f.text_field :sound_source,cols:40,class: 'form-control',size:30 %>
 
-  <tr>
-  <td><%= f.label :gender %></td>
-  <td><%= f.radio_button :gender,1 %>男 <%= f.radio_button :gender,2 %>女 </td>
-  </tr>
+<br>
+<%= f.label :mail_notice, {class: 'form-label'} %><br>
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-info active">
+    <%= f.radio_button :mail_notice,1, :checked => true %>通知する
+  </label>
+  <label class="btn btn-info">
+    <%= f.radio_button :mail_notice,2 %>通知しない
+  </label>
+</div>
 
-  <% options = [["---",nil],["会社員",1],["フリーター",2],["学生",3],["その他",4]] %>
+<div class="actions">
+  <td colspan="2"><%= f.submit "プロフィールを更新",:class=>"btn btn-primary btn-lg my-5" %>
+</div>
 
-  <tr>
-  <td><%= f.label :job %></td>
-  <td><%= f.select :job,options %></td>
-  </tr>
-
-  <tr>
-  <td><%= f.label :band_type %></td>
-  <td><%= f.radio_button :band_type,1 %>新規結成 <%= f.radio_button :band_type,2 %>活動(休止)中 </td>
-  </tr>
-
-  <tr>
-  <td><%= f.label :song_type %></td>
-  <td><%= f.radio_button :song_type,1 %>オリジナルが多い <%= f.radio_button :song_type,2 %>コピーが多い</td>
-  </tr>
-
-  <tr>
-  <td><%= f.label :mail_notice %></td>
-  <td><%= f.radio_button :mail_notice,1, :checked => true %>通知する <%= f.radio_button :mail_notice,2 %>通知しない</td>
-  </tr>
-  <tr>
-  <div class="actions">
-    <td colspan="2"><%= f.submit "プロフィールを更新",:class=>"btn btn-primary btn-lg my-3" %></td>
-  </div>
-  </tr>
-</table>
 <% end %>
 </div>
+</div>
+
+

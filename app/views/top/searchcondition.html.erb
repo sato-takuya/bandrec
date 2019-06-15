@@ -1,11 +1,22 @@
 <div class="search-box">
-<h2>検索条件</h2>
+<h3>検索条件</h3>
 
 <%= form_tag("/top/search", method: "get") do %>
 
-ステータス：<%= radio_button_tag :user_type,1 %>加入希望 <%= radio_button_tag :user_type,2 %>メンバーを募集<br>
+<br>
+<%= label :user_type,"ステータス(必須)" %>
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-info">
+    <%= radio_button_tag :user_type,1 %>加入希望の人を探す
+  </label>
+  <label class="btn btn-info">
+    <%= radio_button_tag :user_type,2 %>メンバーを募集している人を探す
+  </label>
 
-<p>※ステータスを選択してください</p>
+</div>
+
+<br>
+<br>
 
 <span class="show-add">担当</span><span class="show-band">募集</span>パート：
 <%= check_box_tag 'candidate[id][]', 1,:checked => true %>ボーカル
@@ -25,34 +36,42 @@
     '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県',
     '鹿児島県', '沖縄県'] %>
 
-
+<br>
 活動場所：<%= select_tag :area,options_for_select(array_area) %><br>
 
-キーワード：<%= text_field_tag :info %><br>
+<br>
 
-並び順：<%= radio_button_tag :order,1,:checked => true %>おすすめ順 <%= radio_button_tag :order,2 %>登録が新しい順<br>
+<div class='form-inline justify-content-center'>
+キーワード：<%= text_field_tag :info,'',class: 'form-control' %><br>
+</div>
 
 
 <div class="show-add">
 
+<br>
 性別：<%= check_box_tag 'gender[id][]',1,:checked => true  %>男  <%= check_box_tag 'gender[id][]',2 ,:checked => true %>女<br>
-
-職業：<%= check_box_tag 'job[id][]',1,:checked => true  %>会社員  <%= check_box_tag 'job[id][]',2 ,:checked => true %>フリーター <%= check_box_tag 'job[id][]',3,:checked => true  %>学生  <%= check_box_tag 'job[id][]',4 ,:checked => true %>その他<br>
-
-方向性：<%= check_box_tag 'future[id][]',1,:checked => true  %>プロ志向  <%= check_box_tag 'future[id][]',2,:checked => true  %>趣味<br>
 
 <% array_age_first =  [*16..50] %>
 <% array_age_end = [*0..50].reverse %>
 
+<br>
 年齢：<%= select_tag :age_start,options_for_select(array_age_first) %>才 から <%= select_tag :age_end,options_for_select(array_age_end) %>才<br>
 </div>
 <div class="show-band">
+</div>
 
-バンド形態：<%= check_box_tag 'band_type[id][]',1,:checked => true  %>新規結成  <%= check_box_tag 'band_type[id][]',2 ,:checked => true %>活動中<br>
+<br>
+<%= label :user_type,"並び順" %>
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-info active">
+    <%= radio_button_tag :order,1, {checked: true}  %>おすすめ順
+  </label>
+  <label class="btn btn-info">
+    <%= radio_button_tag :user_type,2 %>登録が新しい順
+  </label>
 
-楽曲のタイプ：<%= check_box_tag 'song_type[id][]',1,:checked => true  %>オリジナルが多い  <%= check_box_tag 'song_type[id][]',2 ,:checked => true %>コピーが多い<br>
 </div>
 <br>
-<%= submit_tag "検索" ,:class=>"btn btn-primary btn-lg" %>
+<%= submit_tag "検索" ,:class=>"btn btn-primary btn-lg my-4" %>
 <% end %>
 </div>

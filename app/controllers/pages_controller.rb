@@ -145,15 +145,15 @@ class PagesController < ApplicationController
       end
     end
 
-    if params[:user_type].to_s == "1" #加入希望を探す場合
+  if params[:user_type].to_s == "1" #加入希望を探す場合
 
-    #削減のためバンドタイプなどを削除しました
-    if current_user
-        if params[:order].to_s == "1"
-          @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).age(array_age).info(params[:info]).where.not(id: current_user.id).order(current_sign_in_at: :desc).page(params[:page])
-        else
-          @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).age(array_age).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
-        end
+    #機能削減(バンドタイプなど)
+      if current_user#自分
+          if params[:order].to_s == "1"
+            @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).age(array_age).info(params[:info]).where.not(id: current_user.id).order(current_sign_in_at: :desc).page(params[:page])
+          else
+            @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).age(array_age).info(params[:info]).where.not(id: current_user.id).order(created_at: :desc).page(params[:page])
+          end
       else
         if params[:order].to_s == "1"
           @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).age(array_age).info(params[:info]).order(current_sign_in_at: :desc).page(params[:page])
@@ -161,9 +161,9 @@ class PagesController < ApplicationController
           @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).gender(array_gender).age(array_age).info(params[:info]).order(created_at: :desc).page(params[:page])
         end
       end
-    end
+  end
 
-    if params[:user_type].to_s == "2" #メンバー募集を探す場合
+  if params[:user_type].to_s == "2" #メンバー募集を探す場合
       if current_user
           if params[:order].to_s == "1"
             @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).info(params[:info]).where.not(id: current_user.id).order(current_sign_in_at: :desc).page(params[:page])
@@ -177,6 +177,7 @@ class PagesController < ApplicationController
             @users = User.with_attached_profile_picture.user_type(params[:user_type]).inst(kk).area(params[:area]).info(params[:info]).order(created_at: :desc).page(params[:page])
         end
       end
-    end
+  end
+  #render "index"
   end
 end

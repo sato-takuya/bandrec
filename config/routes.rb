@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     #プロフィール更新画面へ
     patch 'profile_update', to: 'users/registrations#profile_update', as: 'profile_update'
   end
-
+  get 'pages/id',to: 'pages#show'
   resources :pages  do
     get "searchcondition",on: :collection
     get "search" ,on: :collection

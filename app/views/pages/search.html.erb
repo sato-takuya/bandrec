@@ -19,7 +19,7 @@
 
 <!--トップの検索-->
 <h2 class="hidden">検索条件を変更する</h2>
-<%= link_to '検索条件変更',"/top/searchcondition",class:"top-search" %>
+<%= link_to '検索条件変更',"/pages/searchcondition",class:"top-search" %>
 
 <!--コンテンツ一覧-->
 <h2 class="hidden">ユーザー一覧を表示</h2>
@@ -27,7 +27,7 @@
 <div class="contents-box clearfix">
 <% if @users  %>
   <% @users.each do |user| %>
-    <%= link_to top_path(user) do %>
+    <%= link_to pages_path(user) do %>
     <div class="content-box">
     <h3 class="hidden">ユーザープロフィール</h3>
       <div class="name"><%= user.name %></div>

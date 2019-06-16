@@ -3,7 +3,7 @@
 <% if current_user %>
 <% else %>
 <h2 class="hidden">サイト説明</h2>
-<%= link_to "/top/about" do %>
+<%= link_to "/pages/about" do %>
 <%= image_tag 'bandrec.png',width:300,class:'top-image' %>
 <% end %>
 <%#<%= link_to 'このサイトについて', "/top/about",:class => "about-site" %>
@@ -11,14 +11,14 @@
 
 
 <h2 class="hidden">検索条件を変更する</h2>
-<%= link_to '検索',"/top/searchcondition",class:"top-search btn btn-info btn-lg" %>
+<%= link_to '検索',"/pages/searchcondition",class:"top-search btn btn-info btn-lg" %>
 <!--コンテンツ一覧-->
 <h2 class="hidden">ユーザー一覧を表示</h2>
 
 <div class="contents-box clearfix">
 <% if @users %>
   <% @users.each do |user| %>
-  <%= link_to "top/#{user.id}" do %>
+  <%= link_to "pages/#{user.id}" do %>
 
   <div class="content-box">
   <h3 class="hidden">ユーザープロフィール</h3>

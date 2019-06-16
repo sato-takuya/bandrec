@@ -1,4 +1,4 @@
-class TopController < ApplicationController
+class PagesController < ApplicationController
     before_action :searchval,only: [:search] #検索に「検索バリデーション」を実行する
     include Common
 
@@ -8,7 +8,7 @@ class TopController < ApplicationController
 
   def prereg
     if current_user
-      render "top/prereg"
+      render "pages/prereg"
     else
     redirect_to :new_user_registration
     end

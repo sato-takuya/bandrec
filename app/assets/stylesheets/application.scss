@@ -134,18 +134,19 @@ header a{
 
 /*新着情報*/
 .news-list{
-    height: 30px;
+    height: 45px;
     width:100%;
     list-style: none;
     background-color:rgb(255, 255, 255);
     text-align: center;
     overflow-y: auto;
-    line-height: 70px;
+    line-height: 45px;
 }
 
 .news-list li a{
     display: block;
-    color:rgb(255, 153, 0);
+    text-align: center;
+    color:rgb(56, 56, 56);
     font-size:1.2rem;
     font-weight: bold;
 }
@@ -348,24 +349,22 @@ header a{
 /*チャット画面*/
 .chat-box{
     width:100%;
-    margin:0 auto;
     text-align: center;
     background-color:rgb(255, 255, 255);
     /*box-shadow: 0px 2px 4px 3px rgba(99, 98, 98, 0.15);*/
-    padding:10px 10px 10px 10px;
 }
 
 
 .line-bc {
   padding: 20px 10px;
   min-height:300px;
-  max-width: 100%;
-  max-height:400px;
+  width: 100%;
   margin: 15px auto;
   text-align: right;
   font-size: 14px;
   background: #D3F4FF;
   overflow-y:auto;
+
 
 }
 
@@ -448,9 +447,6 @@ header a{
     font-size:0.1rem;
 }
 
-textarea {
-    resize: none;
-}
 
 .room-index{
     background-color:rgb(255, 255, 255);
@@ -461,7 +457,6 @@ textarea {
     overflow-y: auto;
     font-size:1.5rem;
     padding:20px 20px 20px 20px;
-    /*box-shadow: 0px 2px 4px 3px rgba(99, 98, 98, 0.15);*/
 }
 .room-index h2{
     margin:0 auto;
@@ -598,7 +593,6 @@ textarea {
     color:rgb(255, 0, 0);
     font-size: 0.5rem;
 }
-
 
 
 

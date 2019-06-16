@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'top#index'#トップページ
+  root 'pages#index'#トップページ
   devise_for :users,module: :users
   devise_scope :user do
     #プロフィール編集画面へ
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     patch 'profile_update', to: 'users/registrations#profile_update', as: 'profile_update'
   end
 
-  resources :top  do
+  resources :pages  do
     get "searchcondition",on: :collection
     get "search" ,on: :collection
     get "about" ,on: :collection

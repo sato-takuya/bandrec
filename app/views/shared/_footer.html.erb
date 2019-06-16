@@ -7,9 +7,9 @@
 </div>
 <div class="copyright">Copyright ©︎bandrec </div><br>
   <div class="horizonal-list">
-      <%= link_to 'bandrecとは', "/top/about",:class => "bandrectoha" %> |
-      <%= link_to 'お問い合わせ', "/top/inquiry" %> |
-      <%= link_to '利用規約', "/top/privacy_policy" %> |
+      <%= link_to 'bandrecとは', "/pages/about",:class => "bandrectoha" %> |
+      <%= link_to 'お問い合わせ', "/pages/inquiry" %> |
+      <%= link_to '利用規約', "/pages/privacy_policy" %> |
       <% if user_signed_in? %>
       <%= link_to "アカウント削除","/users/#{current_user}", method: :delete, data: { confirm: '本当にアカウントを削除しますか？' } %>
       <% end %>

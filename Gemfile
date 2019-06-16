@@ -71,6 +71,7 @@ gem "aws-sdk-s3", require: false
 gem 'google-analytics-rails'
 gem 'order_as_specified'
 gem 'bootstrap'
+gem 'public_uid'
 
 group :production do
   gem 'rails_12factor'

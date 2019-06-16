@@ -6,7 +6,7 @@
 <% @entries.each do |e| %>
 <% if e.user_id == current_user.id %>
 <% else %>
-  <h5><strong><a href="/pages/<%= e.user.id %>"><%= e.user.name%>さん</a></strong></h5>
+  <h5><strong><a href="/pages/<%= e.user.public_uid %>"><%= e.user.name%>さん</a></strong></h5>
   <% end %>
 <% end %>
 

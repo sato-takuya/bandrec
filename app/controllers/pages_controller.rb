@@ -6,14 +6,6 @@ class PagesController < ApplicationController
     redirect_to new_user_registration_url unless user_signed_in?
   end
 
-  def prereg
-    if current_user
-      render "pages/prereg"
-    else
-    redirect_to :new_user_registration
-    end
-  end
-
   def privacy_policy #プライバシーポリシーへ
   end
 
@@ -44,7 +36,7 @@ class PagesController < ApplicationController
   end
 
   def show
-      @user = User.find(params[:id])
+      @user = User.find_by(public_uid: params[:id])
       #以下、メッセージ用
       if current_user
         @currentUserEntry=Entry.where(user_id: current_user.id)#ログイン中のユーザーのエントリーのインスタンス

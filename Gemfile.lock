@@ -167,6 +167,8 @@ GEM
     pry-rails (0.3.8)
       pry (>= 0.10.4)
     public_suffix (3.0.3)
+    public_uid (1.3.0)
+      orm_adapter (~> 0.5)
     puma (3.12.0)
     rack (2.0.6)
     rack-test (1.1.0)
@@ -290,6 +292,7 @@ DEPENDENCIES
   mysql2 (>= 0.4.4, < 0.6.0)
   order_as_specified
   pry-rails
+  public_uid
   puma (~> 3.11)
   rails (~> 5.2.1)
   rails-i18n

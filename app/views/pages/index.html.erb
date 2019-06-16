@@ -18,8 +18,7 @@
 <div class="contents-box clearfix">
 <% if @users %>
   <% @users.each do |user| %>
-  <%= link_to "pages/#{user.id}" do %>
-
+  <%= link_to "pages/#{user.public_uid}" do %>
   <div class="content-box">
   <h3 class="hidden">ユーザープロフィール</h3>
       <% if user.profile_picture.attached? %>

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,:recoverable, :rememberable, :validatable,:trackable ,:confirmable
   validates :name, presence: true
 
+  generate_public_uid
+
   has_one_attached :profile_picture
   has_many :instruments,dependent: :destroy
   has_many :messages, dependent: :destroy
@@ -12,6 +14,11 @@ class User < ApplicationRecord
   extend OrderAsSpecified
 
   validates :info, length: { maximum: 3000 }
+
+
+  def to_param
+    public_uid
+  end
 
   scope :user_type,->(pub){where(user_type: pub).where.not(user_type: 3)}#ユーザータイプは何か
 

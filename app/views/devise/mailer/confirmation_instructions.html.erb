@@ -1,5 +1,6 @@
 <p>ようこそ <%= @email %>さん!</p>
 
+
 <p>以下のリンクをクリックしてアカウントを有効にしてください:</p>
 
 <p><%= link_to 'アカウント有効化', confirmation_url(@resource, confirmation_token: @token) %></p>
